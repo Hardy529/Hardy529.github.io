@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hardy529.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="Calender日历控件的属性和事件在很多程序中，我们都可能会用到日期控件，这里就说一下日历的控件的一些属性和事件日历控件最后是以 table 的形式显示。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calender日历控件">
+<meta property="og:url" content="https://hardy529.github.io/[object%20Object]/ASP.NET%E6%8E%A7%E4%BB%B6/Calender%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Hardy">
+<meta property="og:description" content="Calender日历控件的属性和事件在很多程序中，我们都可能会用到日期控件，这里就说一下日历的控件的一些属性和事件日历控件最后是以 table 的形式显示。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hardy529.github.io/images/Calender%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png">
+<meta property="article:published_time" content="2020-05-01T20:40:28.000Z">
+<meta property="article:modified_time" content="2020-05-10T02:33:00.886Z">
+<meta property="article:author" content="Hardy">
+<meta property="article:tag" content="ASP.NET">
+<meta property="article:tag" content="WEB控件">
+<meta property="article:tag" content="日历控件">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hardy529.github.io/images/Calender%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png">
+
+
+<link rel="canonical" href="https://hardy529.github.io/[object%20Object]/ASP.NET%E6%8E%A7%E4%BB%B6/Calender%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>Calender日历控件 | Hardy</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hardy</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Calender%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">Calender日历控件的属性和事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">显示结果</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hardy"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Hardy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hardy529.github.io/[object%20Object]/ASP.NET%E6%8E%A7%E4%BB%B6/Calender%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hardy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hardy">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Calender日历控件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-02 04:40:28" itemprop="dateCreated datePublished" datetime="2020-05-02T04:40:28+08:00">2020-05-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-05-10 10:33:00" itemprop="dateModified" datetime="2020-05-10T10:33:00+08:00">2020-05-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ASP-NET%E6%8E%A7%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">ASP.NET控件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Calender日历控件的属性和事件"><a href="#Calender日历控件的属性和事件" class="headerlink" title="Calender日历控件的属性和事件"></a>Calender日历控件的属性和事件</h2><p>在很多程序中，我们都可能会用到日期控件，这里就说一下日历的控件的一些属性和事件<br>日历控件最后是以 table 的形式显示。</p>
+<a id="more"></a>
+
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">Caption</td>
+<td align="left">获取或设置日历控件的标题。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">CaptionAlign</td>
+<td align="left">获取或设置标题的对齐方式。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">CellPadding</td>
+<td align="left">获取或设置数据与单元格边框之间的空格数。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">CellSpacing</td>
+<td align="left">获取或设置单元格之间的空间。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">DayHeaderStyle</td>
+<td align="left">获取显示星期几的部分的样式属性。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">DayNameFormat</td>
+<td align="left">获取或设置一周中的几天的格式。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">DayStyle</td>
+<td align="left">获取显示的月份中日期的样式属性。</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">FirstDayOfWeek</td>
+<td align="left">获取或设置要在第一列中显示的是星期几。</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">NextMonthText</td>
+<td align="left">获取或设置下个月导航控件的文本。 默认值是字符：&gt;</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">NextPrevFormat</td>
+<td align="left">获取或设置下个月和上个月的导航控件的格式。</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">OtherMonthDayStyle</td>
+<td align="left">获取日历控件上不在显示的月份中的日子的样式属性。</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">PrevMonthText</td>
+<td align="left">获取或设置上个月导航控件的文本。默认值是字符：&lt;</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">SelectedDate</td>
+<td align="left">获取或设置选定的日期。</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">SelectedDates</td>
+<td align="left">获取表示所选日期的DateTime对象的集合。</td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left">SelectedDayStyle</td>
+<td align="left">获取所选日期的样式属性。</td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left">SelectionMode</td>
+<td align="left">获取或设置选择模式，该模式指定用户是可以选择一天，一周还是整个月份。</td>
+</tr>
+<tr>
+<td align="left">17</td>
+<td align="left">SelectMonthText</td>
+<td align="left">获取或设置选择器列中月份选择元素的文本。</td>
+</tr>
+<tr>
+<td align="left">18</td>
+<td align="left">SelectorStyle</td>
+<td align="left">获取周和月选择器列的样式属性。</td>
+</tr>
+<tr>
+<td align="left">19</td>
+<td align="left">SelectWeekText</td>
+<td align="left">获取或设置在选择器列中为星期选择元素显示的文本。</td>
+</tr>
+<tr>
+<td align="left">20</td>
+<td align="left">ShowDayHeader</td>
+<td align="left">获取或设置指示是否显示星期几的标题的值。</td>
+</tr>
+<tr>
+<td align="left">21</td>
+<td align="left">ShowGridLines</td>
+<td align="left">获取或设置指示是否显示网格线的值。</td>
+</tr>
+<tr>
+<td align="left">22</td>
+<td align="left">ShowNextPrevMonth</td>
+<td align="left">获取或设置一个值，该值指示标题部分中是否显示下个月和上个月的导航元素。</td>
+</tr>
+<tr>
+<td align="left">23</td>
+<td align="left">ShowTitle</td>
+<td align="left">获取或设置一个值，指示是否显示标题部分。</td>
+</tr>
+<tr>
+<td align="left">24</td>
+<td align="left">TitleFormat</td>
+<td align="left">获取或设置标题部分的格式。</td>
+</tr>
+<tr>
+<td align="left">25</td>
+<td align="left">Titlestyle</td>
+<td align="left">获取日历控件标题标题的样式属性。</td>
+</tr>
+<tr>
+<td align="left">26</td>
+<td align="left">TodayDayStyle</td>
+<td align="left">获取日历控件上今天日期的样式属性。</td>
+</tr>
+<tr>
+<td align="left">27</td>
+<td align="left">TodaysDate</td>
+<td align="left">获取或设置今天的日期值。</td>
+</tr>
+<tr>
+<td align="left">28</td>
+<td align="left">UseAccessibleHeader</td>
+<td align="left">获取或设置一个值，该值指示是否为日期标题呈现表格标题 th HTML元素，而不是表格数据td HTML元素。</td>
+</tr>
+<tr>
+<td align="left">29</td>
+<td align="left">VisibleDate</td>
+<td align="left">获取或设置指定要显示的月份的日期。</td>
+</tr>
+<tr>
+<td align="left">30</td>
+<td align="left">WeekendDayStyle</td>
+<td align="left">获取Calendar控件上周末日期的样式属性</td>
+</tr>
+</tbody></table>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th align="left">事件</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="left">SelectionChanged</td>
+<td align="left">单机控件，当选择一天，一周或整个月份时激发。</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="left">DayRender</td>
+<td align="left">在日历控件的每个数据单元被渲染时激发。</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="left">VisibleMonthChanged</td>
+<td align="left">当用户更改日历月份的时候激发</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"><span class="keyword">using</span> System.Drawing;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class Calendar控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Label label1 = <span class="keyword">new</span> Label();</span><br><span class="line">            label1.ID = <span class="string">&quot;label1&quot;</span>;</span><br><span class="line">            label1.ForeColor = Color.Red;</span><br><span class="line">            <span class="comment">//创建一个日历控件</span></span><br><span class="line">            Calendar c = <span class="keyword">new</span> Calendar();</span><br><span class="line">            <span class="comment">// ID属性赋值</span></span><br><span class="line">            c.ID = <span class="string">&quot;rili&quot;</span>;</span><br><span class="line">            <span class="comment">// 添加一个事件</span></span><br><span class="line">            c.SelectionChanged += rili_SelectionChanged;</span><br><span class="line">            c.VisibleMonthChanged += rili_VisibleMonthChanged;</span><br><span class="line">            c.DayRender += rili_DayRender;</span><br><span class="line">            TableItemStyle tableItemStyle = <span class="keyword">new</span> TableItemStyle();</span><br><span class="line">            <span class="comment">// 设置日期选择模式          </span></span><br><span class="line">            c.SelectionMode = CalendarSelectionMode.DayWeekMonth;</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(label1);</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rili_DayRender</span>(<span class="params"><span class="built_in">object</span> sender, DayRenderEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">          </span><br><span class="line">            <span class="comment">//给单元个添加样式</span></span><br><span class="line">            e.Cell.Attributes.Add(<span class="string">&quot;onmouseover&quot;</span>, <span class="string">&quot;this.style.backgroundColor=&#x27;red&#x27;&quot;</span>);</span><br><span class="line">            e.Cell.Attributes.Add(<span class="string">&quot;onmouseout&quot;</span>, <span class="string">&quot;this.style.backgroundColor=&#x27;White&#x27;&quot;</span>);</span><br><span class="line">            e.Cell.Attributes.Add(<span class="string">&quot;onclick&quot;</span>, <span class="built_in">string</span>.Format(<span class="string">&quot;show(&#x27;&#123;0&#125;&#x27;);&quot;</span>,e.Day.Date.ToString()));</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 更改 日历月份是激发该事件</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rili_VisibleMonthChanged</span>(<span class="params"><span class="built_in">object</span> sender, MonthChangedEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            ControlCollection controlsList = <span class="keyword">this</span>.form1.Controls;</span><br><span class="line">            Label l = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> controlsList)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (item <span class="keyword">is</span> Label)</span><br><span class="line">                &#123;</span><br><span class="line">                    l = (Label)item;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            l.Text = <span class="string">&quot;月份更改了，激发的是VisibleMonthChanged事件&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 选择日期的时候激发该事件</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rili_SelectionChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 获取form1 中的控件集合</span></span><br><span class="line">            ControlCollection controlsList = <span class="keyword">this</span>.form1.Controls;</span><br><span class="line">            Calendar c = <span class="literal">null</span>;</span><br><span class="line">            Label l = <span class="literal">null</span>;</span><br><span class="line">            <span class="comment">// 获取controlsList 中的每一个控件</span></span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> controlsList)</span><br><span class="line">            &#123;</span><br><span class="line">                c = item <span class="keyword">as</span> Calendar;</span><br><span class="line">                <span class="keyword">if</span>(item <span class="keyword">is</span> Label)</span><br><span class="line">                &#123;</span><br><span class="line">                    l = (Label)item;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(c!=<span class="literal">null</span> &amp;&amp; l != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 将日历控件选中日期的值，显示的label控件中</span></span><br><span class="line">                l.Text = <span class="string">&quot;你选择的日期是&quot;</span> + c.SelectedDate.ToString() + <span class="string">&quot;,这里激发的是SelectionChanged事件&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/Calender%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+		## 修改文章底部的#号的标签
+          <div class="post-tags">
+              <a href="/tags/ASP-NET/" rel="tag"><i class="fa fa-tag"></i> ASP.NET</a>
+              <a href="/tags/WEB%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> WEB控件</a>
+              <a href="/tags/%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> 日历控件</a>
+          </div>
+		 
+		
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/BulletedList%E6%8E%A7%E4%BB%B6%EF%BC%88%E6%9C%89%E5%BA%8F-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8%E6%8E%A7%E4%BB%B6%EF%BC%89/" rel="prev" title="BulletedList控件（有序,无序列表控件）">
+                  <i class="fa fa-chevron-left"></i> BulletedList控件（有序,无序列表控件）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%5Bobject%20Object%5D/Hexo%E5%8D%9A%E5%AE%A2/hexo-icarus%E4%B8%BB%E9%A2%98/" rel="next" title="hexo + icarus主题">
+                  hexo + icarus主题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hardy</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+</body>
+</html>

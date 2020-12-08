@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hardy529.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="C#中的 is检查一个对象是否兼容于其他指定的类型,并返回一个Bool值,如果一个对象是某个类型或是其父类型的话就返回为true，否则的话就会返回为false。永远不会抛出异常如果对象引用为null，那么is操作符总是返回为false，因为没有对象可以检查其类型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="as 和 is 区别">
+<meta property="og:url" content="https://hardy529.github.io/[object%20Object]/C#%E5%9F%BA%E7%A1%80/as%20%E4%B8%8E%20is/index.html">
+<meta property="og:site_name" content="Hardy">
+<meta property="og:description" content="C#中的 is检查一个对象是否兼容于其他指定的类型,并返回一个Bool值,如果一个对象是某个类型或是其父类型的话就返回为true，否则的话就会返回为false。永远不会抛出异常如果对象引用为null，那么is操作符总是返回为false，因为没有对象可以检查其类型。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-08T02:41:02.913Z">
+<meta property="article:modified_time" content="2020-04-28T16:29:37.424Z">
+<meta property="article:author" content="Hardy">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="C#基础">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hardy529.github.io/[object%20Object]/C#%E5%9F%BA%E7%A1%80/as%20%E4%B8%8E%20is/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>as 和 is 区别 | Hardy</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hardy</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E4%B8%AD%E7%9A%84-is"><span class="nav-number">1.</span> <span class="nav-text">C#中的 is</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E4%B8%AD%E7%9A%84-as"><span class="nav-number">2.</span> <span class="nav-text">C#中的 as</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#as%E4%B8%8Eis%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">as与is的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E8%BF%9B%E8%A1%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8C%89%E7%85%A7%E5%A6%82%E4%B8%8B%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9B%E8%A1%8C%E9%80%89%E6%8B%A9"><span class="nav-number">4.</span> <span class="nav-text">在进行类型转换的时候，可以按照如下的方式进行选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int-%E5%92%8CInt32-Parse-Convert-ToInt32-%E4%B8%89%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.</span> <span class="nav-text">(int)和Int32.Parse(),Convert.ToInt32()三者的区别</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hardy"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Hardy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hardy529.github.io/[object%20Object]/C#%E5%9F%BA%E7%A1%80/as%20%E4%B8%8E%20is/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hardy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hardy">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          as 和 is 区别
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-08 10:41:02" itemprop="dateCreated datePublished" datetime="2020-12-08T10:41:02+08:00">2020-12-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-04-29 00:29:37" itemprop="dateModified" datetime="2020-04-29T00:29:37+08:00">2020-04-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">C#基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="C-中的-is"><a href="#C-中的-is" class="headerlink" title="C#中的 is"></a>C#中的 is</h2><p>检查一个对象是否兼容于其他指定的类型,并返回一个Bool值,如果一个对象是某个类型或是其父类型的话就返回为true，否则的话就会返回为false。永远不会抛出异常<br>如果对象引用为null，那么is操作符总是返回为false，因为没有对象可以检查其类型。</p>
+<a id="more"></a>
+<p>示例</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">object</span> o = <span class="keyword">new</span> <span class="built_in">object</span>();</span><br><span class="line"><span class="keyword">if</span> (o <span class="keyword">is</span> Label)</span><br><span class="line">&#123;</span><br><span class="line">    Label lb = (Label)o;</span><br><span class="line">    Response.Write(<span class="string">&quot;类型转换成功&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Response.Write(<span class="string">&quot;类型转换失败&quot;</span>);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="C-中的-as"><a href="#C-中的-as" class="headerlink" title="C#中的 as"></a>C#中的 as</h2><p>1、检查对象类型的兼容性，并返回转换结果，如果不兼容则返回null；<br>2、不会抛出异常；<br>3、如果结果判断为空，则强制执行类型转换将抛出NullReferenceException异常；<br>4、用as来进行类型转换的时候，所要转换的对象类型必须是目标类型或者转换目标类型的派生类型<br>示例</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">object</span> o = <span class="keyword">new</span> <span class="built_in">object</span>();    </span><br><span class="line">Label lb = o <span class="keyword">as</span> Label;    </span><br><span class="line"><span class="keyword">if</span> (lb == <span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Response.Write(<span class="string">&quot;类型转换失败&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;      </span><br><span class="line">    Response.Write(<span class="string">&quot;类型转换成功&quot;</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="as与is的区别"><a href="#as与is的区别" class="headerlink" title="as与is的区别"></a>as与is的区别</h2><p>1、AS在转换的同事兼判断兼容性，如果无法进行转换，则 as 返回 null（没有产生新的对象）而不是引发异常。有了AS我想以后就不要再用try-catch来做类型转换的判断了。因此as转换成功要判断是否为null。</p>
+<p>2、AS是引用类型类型的转换或者装箱转换，不能用与值类型的转换。如果是值类型只能结合is来强制转换<br>3、IS只是做类型兼容判断，并不执行真正的类型转换。返回true或false，不会返回null，对象为null也会返回false。</p>
+<p>4、AS模式的效率要比IS模式的高，因为借助IS进行类型转换的化，需要执行两次类型兼容检查。而AS只需要做一次类型兼容，一次null检查，null检查要比类型兼容检查快。</p>
+<h2 id="在进行类型转换的时候，可以按照如下的方式进行选择"><a href="#在进行类型转换的时候，可以按照如下的方式进行选择" class="headerlink" title="在进行类型转换的时候，可以按照如下的方式进行选择"></a>在进行类型转换的时候，可以按照如下的方式进行选择</h2><p>1、Object =&gt; 已知引用类型<br>使用as操作符来完成</p>
+<p>2、Object =&gt; 已知值类型<br>先使用is操作符来进行判断，再用类型强转方式进行转换</p>
+<p>3、已知引用类型之间转换<br>首先需要相应类型提供转换函数，再用类型强转方式进行转换</p>
+<p>4、已知值类型之间转换<br>最好使用系统提供的Convert类所涉及的静态方法</p>
+<h2 id="int-和Int32-Parse-Convert-ToInt32-三者的区别"><a href="#int-和Int32-Parse-Convert-ToInt32-三者的区别" class="headerlink" title="(int)和Int32.Parse(),Convert.ToInt32()三者的区别"></a>(int)和Int32.Parse(),Convert.ToInt32()三者的区别</h2><p>1、(int)转换：用在数值范围大的类型转换成数值范围小的类型时使用，但是如果被转换的数值大于或者小于数值范围，则得到一个错误的结果，利用这种转换方式不能将string转换成int，会报错。</p>
+<p>2、Int32.Parse()转换：在符合数字格式的string到int类型转换过程中使用，并可以对错误的string数字格式的抛出相应的异常。</p>
+<p>3、Convert.ToInt32()转换：使用这种转换，所提供的字符串必须是数值的有效表达方式，该数还必须不是溢出的数。否则抛出异常。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+		## 修改文章底部的#号的标签
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+              <a href="/tags/C-%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> C#基础</a>
+          </div>
+		 
+		
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%5Bobject%20Object%5D/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/DOS%E5%91%BD%E4%BB%A4/" rel="prev" title="DOS命令">
+                  <i class="fa fa-chevron-left"></i> DOS命令
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%5Bobject%20Object%5D/Hexo%E5%8D%9A%E5%AE%A2/NexT%20%E8%87%AA%E5%B8%A6%E7%9A%84%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6%E6%94%AF%E6%8C%81%E7%9A%84%E8%AF%AD%E8%A8%80%E5%88%97%E8%A1%A8/" rel="next" title="NexT 自带的语法高亮插件支持的语言列表">
+                  NexT 自带的语法高亮插件支持的语言列表 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hardy</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+</body>
+</html>

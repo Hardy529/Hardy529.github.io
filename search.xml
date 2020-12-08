@@ -1,0 +1,1594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>AdRotator广告控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/AdRotator%E5%B9%BF%E5%91%8A%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="AdRotator广告控件介绍"><a href="#AdRotator广告控件介绍" class="headerlink" title="AdRotator广告控件介绍"></a>AdRotator广告控件介绍</h2><ol>
+<li>AdRotator是ASP.NET中的一个广告控件，当刷新页面时，可以切换广告的内容。</li>
+<li>AdRotator控件使用XML文件存储广告及其信息。XML文件必须以Advertisements标记开头和结尾。在Advertisements标签内可能有多个Ad标签，每个Ad标签都定义了一个广告 。（下面有XML格式）。</li>
+</ol>
+<a id="more"></a>
+
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AdvertisementFile</td>
+<td align="left">包含 ad 信息的 XML 文件的路径</td>
+</tr>
+<tr>
+<td align="left">KeywordFilter</td>
+<td align="left">KeywordFilter的值要和XML里的Keyword节点的值对应 来觉得显示那个类别的广告。</td>
+</tr>
+<tr>
+<td align="left">AlternateTextField</td>
+<td align="left">AlternateTextField的值 要和XML里的 AlternateText节点名称对应</td>
+</tr>
+<tr>
+<td align="left">NavigateUrlField</td>
+<td align="left">NavigateUrlField的值 要和XML 里的NavigateUrl节点名称对应</td>
+</tr>
+<tr>
+<td align="left">ImageUrlField</td>
+<td align="left">ImageUrlField的值 要和XML 里的ImageUrl节点名称对应</td>
+</tr>
+<tr>
+<td align="left">runat</td>
+<td align="left">规定该控件是服务器控件。必须设置为 “server”</td>
+</tr>
+<tr>
+<td align="left">Target</td>
+<td align="left">广告链接以什么方式打开</td>
+</tr>
+</tbody></table>
+<h2 id="XML格式"><a href="#XML格式" class="headerlink" title="XML格式"></a>XML格式</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--  Advertisements节点是固定的   --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Advertisements</span>&gt;</span>  </span><br><span class="line">	<span class="comment">&lt;!--  Ad节点是固定的   --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Ad</span>&gt;</span>  </span><br><span class="line">		<span class="comment">&lt;!--图片url ， 节点名称必须与AdRotator的ImageUrlField属性值相同--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ImageUrl</span>&gt;</span>~/Images/百度.png<span class="tag">&lt;/<span class="name">ImageUrl</span>&gt;</span>  </span><br><span class="line">		<span class="comment">&lt;!--点击图片后的连接地址，节点名称必须与AdRotator的NavigateUrlField属性值相同--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">NavigateUrl</span>&gt;</span>http://www.baidu.com<span class="tag">&lt;/<span class="name">NavigateUrl</span>&gt;</span> </span><br><span class="line">		<span class="comment">&lt;!--图片无法显示时候显示的文本，节点名称必须与AdRotator的AlternateTextField属性值相同   --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">AlternateText</span>&gt;</span>欢迎訪问百度<span class="tag">&lt;/<span class="name">AlternateText</span>&gt;</span> </span><br><span class="line">		<span class="comment">&lt;!--过滤的关键字。可以在AdRatator控件中设置KeywordFilter属性的值，达到显示那些图片的效果还要注意区分大小写。 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Keyword</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">Keyword</span>&gt;</span> </span><br><span class="line">		<span class="comment">&lt;!--  图片显示的概率   --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Impressions</span>&gt;</span>10<span class="tag">&lt;/<span class="name">Impressions</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;/<span class="name">Ad</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--  Ad节点是固定的   --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Ad</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--图片url ， 节点名称必须与AdRotator的ImageUrlField属性值相同--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ImageUrl</span>&gt;</span>~/Images/360.png<span class="tag">&lt;/<span class="name">ImageUrl</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--点击图片后的连接地址，节点名称必须与AdRotator的NavigateUrlField属性值相同--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">NavigateUrl</span>&gt;</span>https://hardy529.github.io/<span class="tag">&lt;/<span class="name">NavigateUrl</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--图片无法显示时候显示的文本，节点名称必须与AdRotator的AlternateTextField属性值相同   --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">AlternateText</span>&gt;</span>欢迎訪问我的博客<span class="tag">&lt;/<span class="name">AlternateText</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--过滤的关键字。可以在AdRatator控件中设置KeywordFilter属性的值，达到显示那些图片的效果还要注意区分大小写。 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Keyword</span>&gt;</span>我的博客<span class="tag">&lt;/<span class="name">Keyword</span>&gt;</span></span><br><span class="line">		 <span class="comment">&lt;!--  图片显示的概率   --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Impressions</span>&gt;</span>10<span class="tag">&lt;/<span class="name">Impressions</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">Ad</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Advertisements</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class AdRotator广告控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            AdRotator ad = <span class="keyword">new</span> AdRotator();   <span class="comment">// 创建一个广告控件</span></span><br><span class="line">            ad.AdvertisementFile = <span class="string">&quot;~/xml/ad.xml&quot;</span>;  <span class="comment">// 指定xml地址</span></span><br><span class="line">            ad.Target = <span class="string">&quot;_blank&quot;</span>;  <span class="comment">// 设置广告链接的打开方式</span></span><br><span class="line">            ad.KeywordFilter = <span class="string">&quot;我的博客&quot;</span>;  <span class="comment">// 按类别显示广告， 根据自己的需求，可写可不写</span></span><br><span class="line">            Panel p = <span class="keyword">new</span> Panel(); <span class="comment">//创建一个面板</span></span><br><span class="line">            p.Controls.Add(ad);  <span class="comment">// 将 AdRotator控件添加到Panel面板里</span></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(p);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/AdRotator%E5%B9%BF%E5%91%8A%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>广告控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BulletedList控件（有序,无序列表控件）</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/BulletedList%E6%8E%A7%E4%BB%B6%EF%BC%88%E6%9C%89%E5%BA%8F-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8%E6%8E%A7%E4%BB%B6%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="BulletedList控件介绍"><a href="#BulletedList控件介绍" class="headerlink" title="BulletedList控件介绍"></a>BulletedList控件介绍</h2><p>BulletedList 控件可以创建一个无序或有序列表， 对应 html里的 UL或 OL 标记，BulletedList控件还可以动态或静态的添加列表项，BulletedList控件的每一项，对应的是UL或 OL标记里的 li 标记。<br>BulletedList 还可以结合CSS样式一起使用。<br>BulletedList控件的DisplayMode属性值分别有 Text，HyperLink，LinkButton，如果DisplayMode的值是谁，他就有谁的属性，方法，和事件</p>
+<a id="more"></a>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">BulletImageUrl</td>
+<td align="left">列表项目图形符号的 URL。在 “BulletStyle” 为 “CustomImage” 时使用。</td>
+</tr>
+<tr>
+<td align="left">BulletStyle</td>
+<td align="left">列表的显示样式</td>
+</tr>
+<tr>
+<td align="left">DisplayMode</td>
+<td align="left">列表的显示类型</td>
+</tr>
+<tr>
+<td align="left">FirstBulletNumber</td>
+<td align="left">有序列表中列表项目的起始数字。</td>
+</tr>
+<tr>
+<td align="left">runat</td>
+<td align="left">规定该控件是服务器控件。必须设置为 “server”</td>
+</tr>
+<tr>
+<td align="left">Target</td>
+<td align="left">广告链接以什么方式打开</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Runtime.Remoting.Messaging;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.HtmlControls;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class BulletedList有序_无序列表控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 创建一个h4标签，给标签的text属性赋值</span></span><br><span class="line">            <span class="keyword">var</span> h4 = <span class="keyword">new</span> HtmlGenericControl(<span class="string">&quot;h4&quot;</span>);</span><br><span class="line">            h4.InnerText = <span class="string">&quot;这里是 HyperLink模式显示的 BulletedList&quot;</span>;</span><br><span class="line">            <span class="comment">//  创建一个BulletedList控件 对象</span></span><br><span class="line">            BulletedList bulletedList = <span class="keyword">new</span> BulletedList();</span><br><span class="line">            <span class="comment">// 创建两个项，并对每一项的text属性赋值</span></span><br><span class="line">            ListItem item1 = <span class="keyword">new</span> ListItem();</span><br><span class="line">            item1.Text = <span class="string">&quot;欢迎光临我的博客&quot;</span>;</span><br><span class="line">            item1.Value = <span class="string">&quot;https://hardy529.github.io/&quot;</span>;</span><br><span class="line">            ListItem item2 = <span class="keyword">new</span> ListItem();</span><br><span class="line">            item2.Text = <span class="string">&quot;百度一下&quot;</span>;</span><br><span class="line">            item2.Value = <span class="string">&quot;https://www.baidu.com/&quot;</span>;</span><br><span class="line">            <span class="comment">// 将创建的两个项添加到bulletedList 控件中</span></span><br><span class="line">            bulletedList.Items.Add(item1);</span><br><span class="line">            bulletedList.Items.Add(item2);</span><br><span class="line">            <span class="comment">// 设置项的显示模式，这里以链接的形式显示， 还有Text，LinkButton 两种形式</span></span><br><span class="line">            bulletedList.DisplayMode = BulletedListDisplayMode.HyperLink;</span><br><span class="line">            <span class="comment">// 超链接的打开方式</span></span><br><span class="line">            bulletedList.Target = <span class="string">&quot;_blank&quot;</span>;</span><br><span class="line">            <span class="comment">// 设置显示样式，这里的是空心圆 ，其他的参考BulletStyle的枚举值</span></span><br><span class="line">            bulletedList.BulletStyle = BulletStyle.Circle;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(h4);</span><br><span class="line">            <span class="comment">// 将 bulletedList控件 添加到页面</span></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(bulletedList);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创建一个h4标签，给标签的text属性赋值</span></span><br><span class="line">            <span class="keyword">var</span> h1 = <span class="keyword">new</span> HtmlGenericControl(<span class="string">&quot;h4&quot;</span>);</span><br><span class="line">            h1.InnerText = <span class="string">&quot;这里是 LinkButton模式显示 的 BulletedList&quot;</span>;</span><br><span class="line">            <span class="comment">//  创建一个BulletedList控件 对象 </span></span><br><span class="line">            BulletedList bulletedList2 = <span class="keyword">new</span> BulletedList();</span><br><span class="line">            <span class="comment">// 给BulletedList属性赋值</span></span><br><span class="line">            bulletedList2.ID = <span class="string">&quot;bulletedList2&quot;</span>;</span><br><span class="line">            bulletedList2.DisplayMode = BulletedListDisplayMode.LinkButton;</span><br><span class="line">            <span class="comment">// 添加项</span></span><br><span class="line">            ListItem[] listItems = <span class="keyword">new</span> ListItem[]</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">new</span> ListItem()&#123;Text=<span class="string">&quot;第一项&quot;</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> ListItem()&#123;Text=<span class="string">&quot;第二项&quot;</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> ListItem()&#123;Text=<span class="string">&quot;第三项&quot;</span>&#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            bulletedList2.Items.AddRange(listItems);</span><br><span class="line">            <span class="comment">// 绑定一个事件</span></span><br><span class="line">            bulletedList2.Click += bulletedList2_Click;</span><br><span class="line">            <span class="comment">// 将控件添加到页面</span></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(h1);</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(bulletedList2);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 此事件是BulletedList 控件在LinkButton模式下有效</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bulletedList2_Click</span>(<span class="params"><span class="built_in">object</span> sender, BulletedListEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 循环查找 BulletedList控件对象</span></span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> <span class="keyword">this</span>.form1.Controls)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (item <span class="keyword">is</span> BulletedList &amp;&amp; item.ID == <span class="string">&quot;bulletedList2&quot;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    BulletedList bl = item <span class="keyword">as</span> BulletedList;</span><br><span class="line">                    <span class="keyword">if</span> (bl!=<span class="literal">null</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 通过事件参数的索引，获取当前点击项，并对该点击项的值做修改</span></span><br><span class="line">                        bl.Items[e.Index].Text = <span class="built_in">string</span>.Format(<span class="string">&quot;你点击的是第&#123;0&#125;项&quot;</span>, e.Index);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/BulletedList%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>列表控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Calender日历控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/Calender%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="Calender日历控件的属性和事件"><a href="#Calender日历控件的属性和事件" class="headerlink" title="Calender日历控件的属性和事件"></a>Calender日历控件的属性和事件</h2><p>在很多程序中，我们都可能会用到日期控件，这里就说一下日历的控件的一些属性和事件<br>日历控件最后是以 table 的形式显示。</p>
+<a id="more"></a>
+
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">Caption</td>
+<td align="left">获取或设置日历控件的标题。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">CaptionAlign</td>
+<td align="left">获取或设置标题的对齐方式。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">CellPadding</td>
+<td align="left">获取或设置数据与单元格边框之间的空格数。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">CellSpacing</td>
+<td align="left">获取或设置单元格之间的空间。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">DayHeaderStyle</td>
+<td align="left">获取显示星期几的部分的样式属性。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">DayNameFormat</td>
+<td align="left">获取或设置一周中的几天的格式。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">DayStyle</td>
+<td align="left">获取显示的月份中日期的样式属性。</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">FirstDayOfWeek</td>
+<td align="left">获取或设置要在第一列中显示的是星期几。</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">NextMonthText</td>
+<td align="left">获取或设置下个月导航控件的文本。 默认值是字符：&gt;</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">NextPrevFormat</td>
+<td align="left">获取或设置下个月和上个月的导航控件的格式。</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">OtherMonthDayStyle</td>
+<td align="left">获取日历控件上不在显示的月份中的日子的样式属性。</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">PrevMonthText</td>
+<td align="left">获取或设置上个月导航控件的文本。默认值是字符：&lt;</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">SelectedDate</td>
+<td align="left">获取或设置选定的日期。</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">SelectedDates</td>
+<td align="left">获取表示所选日期的DateTime对象的集合。</td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left">SelectedDayStyle</td>
+<td align="left">获取所选日期的样式属性。</td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left">SelectionMode</td>
+<td align="left">获取或设置选择模式，该模式指定用户是可以选择一天，一周还是整个月份。</td>
+</tr>
+<tr>
+<td align="left">17</td>
+<td align="left">SelectMonthText</td>
+<td align="left">获取或设置选择器列中月份选择元素的文本。</td>
+</tr>
+<tr>
+<td align="left">18</td>
+<td align="left">SelectorStyle</td>
+<td align="left">获取周和月选择器列的样式属性。</td>
+</tr>
+<tr>
+<td align="left">19</td>
+<td align="left">SelectWeekText</td>
+<td align="left">获取或设置在选择器列中为星期选择元素显示的文本。</td>
+</tr>
+<tr>
+<td align="left">20</td>
+<td align="left">ShowDayHeader</td>
+<td align="left">获取或设置指示是否显示星期几的标题的值。</td>
+</tr>
+<tr>
+<td align="left">21</td>
+<td align="left">ShowGridLines</td>
+<td align="left">获取或设置指示是否显示网格线的值。</td>
+</tr>
+<tr>
+<td align="left">22</td>
+<td align="left">ShowNextPrevMonth</td>
+<td align="left">获取或设置一个值，该值指示标题部分中是否显示下个月和上个月的导航元素。</td>
+</tr>
+<tr>
+<td align="left">23</td>
+<td align="left">ShowTitle</td>
+<td align="left">获取或设置一个值，指示是否显示标题部分。</td>
+</tr>
+<tr>
+<td align="left">24</td>
+<td align="left">TitleFormat</td>
+<td align="left">获取或设置标题部分的格式。</td>
+</tr>
+<tr>
+<td align="left">25</td>
+<td align="left">Titlestyle</td>
+<td align="left">获取日历控件标题标题的样式属性。</td>
+</tr>
+<tr>
+<td align="left">26</td>
+<td align="left">TodayDayStyle</td>
+<td align="left">获取日历控件上今天日期的样式属性。</td>
+</tr>
+<tr>
+<td align="left">27</td>
+<td align="left">TodaysDate</td>
+<td align="left">获取或设置今天的日期值。</td>
+</tr>
+<tr>
+<td align="left">28</td>
+<td align="left">UseAccessibleHeader</td>
+<td align="left">获取或设置一个值，该值指示是否为日期标题呈现表格标题 th HTML元素，而不是表格数据td HTML元素。</td>
+</tr>
+<tr>
+<td align="left">29</td>
+<td align="left">VisibleDate</td>
+<td align="left">获取或设置指定要显示的月份的日期。</td>
+</tr>
+<tr>
+<td align="left">30</td>
+<td align="left">WeekendDayStyle</td>
+<td align="left">获取Calendar控件上周末日期的样式属性</td>
+</tr>
+</tbody></table>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th align="left">事件</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="left">SelectionChanged</td>
+<td align="left">单机控件，当选择一天，一周或整个月份时激发。</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="left">DayRender</td>
+<td align="left">在日历控件的每个数据单元被渲染时激发。</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="left">VisibleMonthChanged</td>
+<td align="left">当用户更改日历月份的时候激发</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"><span class="keyword">using</span> System.Drawing;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class Calendar控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Label label1 = <span class="keyword">new</span> Label();</span><br><span class="line">            label1.ID = <span class="string">&quot;label1&quot;</span>;</span><br><span class="line">            label1.ForeColor = Color.Red;</span><br><span class="line">            <span class="comment">//创建一个日历控件</span></span><br><span class="line">            Calendar c = <span class="keyword">new</span> Calendar();</span><br><span class="line">            <span class="comment">// ID属性赋值</span></span><br><span class="line">            c.ID = <span class="string">&quot;rili&quot;</span>;</span><br><span class="line">            <span class="comment">// 添加一个事件</span></span><br><span class="line">            c.SelectionChanged += rili_SelectionChanged;</span><br><span class="line">            c.VisibleMonthChanged += rili_VisibleMonthChanged;</span><br><span class="line">            c.DayRender += rili_DayRender;</span><br><span class="line">            TableItemStyle tableItemStyle = <span class="keyword">new</span> TableItemStyle();</span><br><span class="line">            <span class="comment">// 设置日期选择模式          </span></span><br><span class="line">            c.SelectionMode = CalendarSelectionMode.DayWeekMonth;</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(label1);</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rili_DayRender</span>(<span class="params"><span class="built_in">object</span> sender, DayRenderEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">          </span><br><span class="line">            <span class="comment">//给单元个添加样式</span></span><br><span class="line">            e.Cell.Attributes.Add(<span class="string">&quot;onmouseover&quot;</span>, <span class="string">&quot;this.style.backgroundColor=&#x27;red&#x27;&quot;</span>);</span><br><span class="line">            e.Cell.Attributes.Add(<span class="string">&quot;onmouseout&quot;</span>, <span class="string">&quot;this.style.backgroundColor=&#x27;White&#x27;&quot;</span>);</span><br><span class="line">            e.Cell.Attributes.Add(<span class="string">&quot;onclick&quot;</span>, <span class="built_in">string</span>.Format(<span class="string">&quot;show(&#x27;&#123;0&#125;&#x27;);&quot;</span>,e.Day.Date.ToString()));</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 更改 日历月份是激发该事件</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rili_VisibleMonthChanged</span>(<span class="params"><span class="built_in">object</span> sender, MonthChangedEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            ControlCollection controlsList = <span class="keyword">this</span>.form1.Controls;</span><br><span class="line">            Label l = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> controlsList)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (item <span class="keyword">is</span> Label)</span><br><span class="line">                &#123;</span><br><span class="line">                    l = (Label)item;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            l.Text = <span class="string">&quot;月份更改了，激发的是VisibleMonthChanged事件&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 选择日期的时候激发该事件</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rili_SelectionChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 获取form1 中的控件集合</span></span><br><span class="line">            ControlCollection controlsList = <span class="keyword">this</span>.form1.Controls;</span><br><span class="line">            Calendar c = <span class="literal">null</span>;</span><br><span class="line">            Label l = <span class="literal">null</span>;</span><br><span class="line">            <span class="comment">// 获取controlsList 中的每一个控件</span></span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> controlsList)</span><br><span class="line">            &#123;</span><br><span class="line">                c = item <span class="keyword">as</span> Calendar;</span><br><span class="line">                <span class="keyword">if</span>(item <span class="keyword">is</span> Label)</span><br><span class="line">                &#123;</span><br><span class="line">                    l = (Label)item;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(c!=<span class="literal">null</span> &amp;&amp; l != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 将日历控件选中日期的值，显示的label控件中</span></span><br><span class="line">                l.Text = <span class="string">&quot;你选择的日期是&quot;</span> + c.SelectedDate.ToString() + <span class="string">&quot;,这里激发的是SelectionChanged事件&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/Calender%E6%97%A5%E5%8E%86%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>日历控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FileUpload上传控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/FileUpload%E4%B8%8A%E4%BC%A0%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="FileUpload上传控件"><a href="#FileUpload上传控件" class="headerlink" title="FileUpload上传控件"></a>FileUpload上传控件</h2><p>1.FileUpload控件的主要功能是向指定目录上传文件。FileUpload控件不会自动上传控件，而需要设置相关的事件处理程序，然后在程序中实现文件上传。<br>   1.上传的思路就是把本地的文件，拷贝到服务器上的指定的位置。<br>   2.我们可以用代码控制上传的文件格式，大小，或者文件名等。</p>
+<a id="more"></a>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">PostedFile</td>
+<td align="left">获取服务器上，上传的文件相关信息</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">FileContent</td>
+<td align="left">获取本地的文件相关信息</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">FileName</td>
+<td align="left">获取本地文件名</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">HasFile</td>
+<td align="left">判断是否选择了文件</td>
+</tr>
+</tbody></table>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SaveAs</td>
+<td align="left">将上传的文件保存到Web服务器上的指定路径</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Render</td>
+<td align="left">将FileUpload控件内容发送到指定的HtmlTextWriter对象，该对象将内容写入要在客户端上呈现的内容。</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Drawing;</span><br><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.HtmlControls;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class FileUpload控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            </span><br><span class="line">            Label l = <span class="keyword">new</span> Label();</span><br><span class="line">            l.Text = <span class="string">&quot;请选择一个扩展名为.png的图片&quot;</span>;</span><br><span class="line">            l.ForeColor = Color.Red;</span><br><span class="line">            Panel p = <span class="keyword">new</span> Panel();</span><br><span class="line">            p.Controls.Add(l);</span><br><span class="line"></span><br><span class="line">            Literal Li = <span class="keyword">new</span> Literal();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">var</span> hr = <span class="keyword">new</span> HtmlGenericControl(<span class="string">&quot;hr&quot;</span>);</span><br><span class="line">            <span class="comment">// 创建一个 FileUpload控件</span></span><br><span class="line">            FileUpload fileUpload = <span class="keyword">new</span> FileUpload();</span><br><span class="line">            <span class="comment">// 创建一个Button按钮</span></span><br><span class="line">            Button button = <span class="keyword">new</span> Button();</span><br><span class="line">            button.Text = <span class="string">&quot;上传&quot;</span>;</span><br><span class="line">            button.Click += button_Click;</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(p);</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(Li);</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(hr);</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(fileUpload);</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(button);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            FileUpload FileUpload1 = <span class="literal">null</span>;</span><br><span class="line">            Literal Literal1 = <span class="literal">null</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> <span class="keyword">this</span>.form1.Controls)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(item <span class="keyword">is</span> FileUpload)</span><br><span class="line">                &#123;</span><br><span class="line">                    FileUpload1 = (FileUpload)item;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (item <span class="keyword">is</span> Literal)</span><br><span class="line">                &#123;</span><br><span class="line">                    Literal1 = (Literal)item;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (FileUpload1!=<span class="literal">null</span> || Literal1!=<span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (FileUpload1 != <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">// 获取要上传的文件名；</span></span><br><span class="line">                    <span class="built_in">string</span> fileName = FileUpload1.FileName.ToString();</span><br><span class="line">                    <span class="comment">// 创建上传地址</span></span><br><span class="line">                    <span class="built_in">string</span> url = <span class="string">&quot;~/files&quot;</span>; <span class="comment">// 虚拟路径</span></span><br><span class="line">                    <span class="built_in">string</span> w_url = Server.MapPath(url);</span><br><span class="line">                    <span class="comment">// 获取客户端上的文件地址，用来判断文件是否存在</span></span><br><span class="line">                    <span class="comment">//string nameUrl = FileUpload1.PostedFile.FileName.ToString();</span></span><br><span class="line">                    <span class="comment">// 因为我这里是本地操作，所以我用品串的方式，去来判断本地的文件夹里是否存在这个文件</span></span><br><span class="line">                    <span class="built_in">string</span> nameUrl = w_url + <span class="string">&quot;\\&quot;</span> + fileName;</span><br><span class="line"></span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">// 获取文件的扩展名</span></span><br><span class="line">                    <span class="built_in">string</span> type = Path.GetExtension(fileName);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 判断是否选择了文件</span></span><br><span class="line">                    <span class="keyword">if</span> (FileUpload1.HasFile)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 判断文件的格式</span></span><br><span class="line">                        <span class="keyword">if</span> (type.ToLower() == <span class="string">&quot;.png&quot;</span>)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="comment">// 判断是否存在这个地址。</span></span><br><span class="line">                            <span class="keyword">if</span> (!Directory.Exists(w_url))</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="comment">//如果不存在，这里就创建一个</span></span><br><span class="line">                                Directory.CreateDirectory(w_url);</span><br><span class="line"></span><br><span class="line">                                <span class="comment">// 判断文件是否存在</span></span><br><span class="line">                                <span class="keyword">if</span> (File.Exists(nameUrl))</span><br><span class="line">                                &#123;</span><br><span class="line">                                    Literal1.Text = <span class="string">&quot;文件以存在&quot;</span>;</span><br><span class="line">                                    <span class="keyword">return</span>;</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="keyword">else</span></span><br><span class="line">                                &#123;</span><br><span class="line">                                    <span class="comment">//然后在将文件上传到指定的路径下</span></span><br><span class="line">                                    FileUpload1.SaveAs(w_url + <span class="string">&quot;\\&quot;</span> + fileName);</span><br><span class="line">                                    Literal1.Text = <span class="string">&quot;上传成功&quot;</span>;</span><br><span class="line">                                &#125;</span><br><span class="line"></span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="comment">// 判断文件是否存在</span></span><br><span class="line">                                <span class="keyword">if</span> (File.Exists(nameUrl))</span><br><span class="line">                                &#123;</span><br><span class="line">                                    Literal1.Text = <span class="string">&quot;文件以存在&quot;</span>;</span><br><span class="line">                                    <span class="keyword">return</span>;</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="keyword">else</span></span><br><span class="line">                                &#123;</span><br><span class="line">                                    <span class="comment">//然后在将文件上传到指定的路径下</span></span><br><span class="line">                                    FileUpload1.SaveAs(w_url + <span class="string">&quot;\\&quot;</span> + fileName);</span><br><span class="line">                                    Literal1.Text = <span class="string">&quot;上传成功&quot;</span>;</span><br><span class="line">                                &#125;</span><br><span class="line"></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            Literal1.Text = <span class="string">&quot;上传的文件格式不符&quot;</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 获取本地文件的大小</span></span><br><span class="line">                        <span class="built_in">long</span> u = FileUpload1.FileContent.Length;</span><br><span class="line">                        <span class="keyword">if</span> (u&lt;=<span class="number">0</span>)</span><br><span class="line">                        &#123;</span><br><span class="line">                            Literal1.Text = <span class="string">&quot;你的文件大小小于 0&quot;</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            Literal1.Text = <span class="string">&quot;请选择要上传的文件&quot;</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/FileUpload%E4%B8%8A%E4%BC%A0%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>上传控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HiddenField隐藏字段控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/HiddenField%E9%9A%90%E8%97%8F%E5%AD%97%E6%AE%B5%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="HiddenField隐藏字段控件"><a href="#HiddenField隐藏字段控件" class="headerlink" title="HiddenField隐藏字段控件"></a>HiddenField隐藏字段控件</h2><p>HiddenField隐藏字段控件，它可以保存那些不必显示在页面上的且对安全性需求不高的数据。</p>
+<a id="more"></a>
+
+
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class HiddenField隐藏字段控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 定义一个隐藏字段</span></span><br><span class="line">            HiddenField hiddenField = <span class="keyword">new</span> HiddenField();</span><br><span class="line">            <span class="comment">// 设置值</span></span><br><span class="line">            hiddenField.Value = <span class="string">&quot;测试&quot;</span>;</span><br><span class="line">            <span class="comment">// 添加到页面</span></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(hiddenField);</span><br><span class="line">            <span class="comment">// 创建一个按钮</span></span><br><span class="line">            Button button = <span class="keyword">new</span> Button();</span><br><span class="line">            <span class="comment">//设置按钮显示的文本</span></span><br><span class="line">            button.Text = <span class="string">&quot;点击按钮测试&quot;</span>;</span><br><span class="line">            <span class="comment">//添加一个单机事件</span></span><br><span class="line">            button.Click += button_Click;</span><br><span class="line">            <span class="comment">//将按钮添加到页面</span></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(button);</span><br><span class="line">            <span class="comment">// 创建一个Literal控件，用来显示数据</span></span><br><span class="line">            Literal literal = <span class="keyword">new</span> Literal();</span><br><span class="line">            <span class="comment">// 将控件添加到页面</span></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(literal);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 点击按钮的时候，将隐藏字段控件里的值赋给Literal控件</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">//定义两个变量，用来存储两个对象</span></span><br><span class="line">            HiddenField hidden = <span class="literal">null</span>;</span><br><span class="line">            Literal l = <span class="literal">null</span>;</span><br><span class="line">            <span class="comment">//循环获取页面的对象</span></span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> <span class="keyword">this</span>.form1.Controls)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (item <span class="keyword">is</span> HiddenField)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">// 将对象赋给变量</span></span><br><span class="line">                    hidden = item <span class="keyword">as</span> HiddenField;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(item <span class="keyword">is</span> Literal)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//将对象赋给变量</span></span><br><span class="line">                    l = item <span class="keyword">as</span> Literal;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 判断两个对象是否存在</span></span><br><span class="line">            <span class="keyword">if</span> (hidden != <span class="literal">null</span> &amp;&amp; l != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 对象都存在，把隐藏字段控件的值 赋给Literal控件</span></span><br><span class="line">                l.Text = hidden.Value;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/HiddenField%E9%9A%90%E8%97%8F%E5%AD%97%E6%AE%B5%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>隐藏字段控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HyperLink超链接控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/HyperLink%E8%B6%85%E9%93%BE%E6%8E%A5%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="HyperLink超链接控件"><a href="#HyperLink超链接控件" class="headerlink" title="HyperLink超链接控件"></a>HyperLink超链接控件</h2><p>Hyperlink控件：Hyperlink控件又称为超链接控件，输出到客户端就是html里的 a标签，该控件在功能也跟Html的&amp;lta herf=””&amp;gt控件相似，其显示的模式为超链接的形式。</p>
+<a id="more"></a>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">Text</td>
+<td align="left">控件的链接文本</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">ImageUrl</td>
+<td align="left">控件上显示的链接图片</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">NavigateUrl</td>
+<td align="left">链接到的Url</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">Target</td>
+<td align="left">广告链接以什么方式打开</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class 公用控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 创建一个超链接控件</span></span><br><span class="line">            HyperLink hyperLink = <span class="keyword">new</span> HyperLink();</span><br><span class="line">            hyperLink.NavigateUrl = <span class="string">&quot;https://hardy529.github.io/&quot;</span>;</span><br><span class="line">            <span class="comment">// 链接名称</span></span><br><span class="line">            hyperLink.Text = <span class="string">&quot;我的博客&quot;</span>;</span><br><span class="line">            <span class="comment">// 超链接的打开方式</span></span><br><span class="line">            hyperLink.Target = <span class="string">&quot;_blank&quot;</span>;</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(hyperLink);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/HyperLink%E8%B6%85%E9%93%BE%E6%8E%A5%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>超链接控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ImageMap图像热点控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/ImageMap%E5%9B%BE%E5%83%8F%E7%83%AD%E7%82%B9%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="ImageMap图像热点控件"><a href="#ImageMap图像热点控件" class="headerlink" title="ImageMap图像热点控件"></a>ImageMap图像热点控件</h2><p>图像热点控件，是一个图像，和HotSpot 控件的集合组成，HotSpot控件集合包括CircleHotSpot(圆形热区)、RectangleHotSpot(方形热区) 或 PolygonHotSpot（多边形热区） 的三个不同项，在第一个每一个热区的时候，都需要明确的指定热区位置，形状的坐标。</p>
+<a id="more"></a>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">HotSpot</td>
+<td align="left">热区形状集合</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">ImageUrl</td>
+<td align="left">图片地址</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class ImageMap热点控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            ImageMap imageMap = <span class="keyword">new</span> ImageMap();</span><br><span class="line">            <span class="comment">//图片地址</span></span><br><span class="line">            imageMap.ImageUrl = <span class="string">&quot;~/images/百度.png&quot;</span>;</span><br><span class="line">            <span class="comment">//添加ImageMap 控件到页面</span></span><br><span class="line">            <span class="keyword">this</span>.Form1.Controls.Add(imageMap);</span><br><span class="line">            <span class="comment">// 在图片上的指定坐标创建一个圆形热区</span></span><br><span class="line">            CircleHotSpot circleHotSpot = <span class="keyword">new</span> CircleHotSpot();</span><br><span class="line">            <span class="comment">// x和y 是图片上的一个点。安装这个点去画一个圆</span></span><br><span class="line">            circleHotSpot.X = <span class="number">45</span>;</span><br><span class="line">            circleHotSpot.Y = <span class="number">20</span>;</span><br><span class="line">            <span class="comment">// 这个是圆的半径</span></span><br><span class="line">            circleHotSpot.Radius = <span class="number">20</span>;</span><br><span class="line">            <span class="comment">//点击热区链接到的地址</span></span><br><span class="line">            circleHotSpot.NavigateUrl = <span class="string">&quot;https://www.baidu.com/&quot;</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//添加一个热点区域</span></span><br><span class="line">            imageMap.HotSpots.Add(circleHotSpot);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/ImageMap%E5%9B%BE%E5%83%8F%E7%83%AD%E7%82%B9%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>热点控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Localize显示文本控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/Localize%E6%98%BE%E7%A4%BA%E6%96%87%E6%9C%AC%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="Localize显示文本控件"><a href="#Localize显示文本控件" class="headerlink" title="Localize显示文本控件"></a>Localize显示文本控件</h2><p>Localize控件：在网页上显示本地化文本的位置。Localiza控件是从Literal控件继承而来，功能与Literal控件完全相同。使用Label 控件可以对所显示的文本应用样式，但使用Localize 控件则不行。可以通过设置 Literal.Text 属性，以编程方式管理在控件中显示的文本。</p>
+<a id="more"></a>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">Text</td>
+<td align="left">获取或设置显示的文本</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class Localize显示文本控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 创建一个文本控件</span></span><br><span class="line">            Localize localize = <span class="keyword">new</span> Localize();</span><br><span class="line">            <span class="comment">// 设置文本信息</span></span><br><span class="line">            localize.Text = <span class="string">&quot;这是显示文本控件，此控件与Literal 和Lable 大致不多&quot;</span>;</span><br><span class="line">            <span class="comment">//将控件添加到页面</span></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(localize);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/Localize%E6%98%BE%E7%A4%BA%E6%96%87%E6%9C%AC%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>显示文本控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MultiView多视图 + View视图控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/MultiView%E5%A4%9A%E8%A7%86%E5%9B%BE-View%E8%A7%86%E5%9B%BE%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="MultiView视图容器-View视图控件"><a href="#MultiView视图容器-View视图控件" class="headerlink" title="MultiView视图容器 + View视图控件"></a>MultiView视图容器 + View视图控件</h2><p>MultiView 是视图控件的一个容易，里面可以包含多个View视图控件，每次只能显示其中的一个View视图控件。呈现出视图之间互斥的效果。<br>View视图控件 不可以单独使用，必须在MultiView中使用。</p>
+<a id="more"></a>
+
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">ActiveViewIndex</td>
+<td align="left">显示视图的索引</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.HtmlControls;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class 公用控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 创建一个视图容器</span></span><br><span class="line">            MultiView multiView = <span class="keyword">new</span> MultiView();</span><br><span class="line">            </span><br><span class="line">            multiView.ActiveViewIndex = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">//创建一个视图</span></span><br><span class="line">            View view1 = <span class="keyword">new</span> View();</span><br><span class="line">            <span class="comment">// 把视图添加到视图容器中</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//向视图中添加按钮</span></span><br><span class="line">            Button btn1 = <span class="keyword">new</span> Button();</span><br><span class="line">            btn1.Text = <span class="string">&quot;下一步&quot;</span>;</span><br><span class="line">            btn1.Click += Btn1_Click;</span><br><span class="line">            view1.Controls.Add(btn1);</span><br><span class="line">            <span class="comment">// 创建第二个视图</span></span><br><span class="line">            View view2 = <span class="keyword">new</span> View();</span><br><span class="line">            <span class="comment">// 把视图添加到视图容器中</span></span><br><span class="line">           </span><br><span class="line">            <span class="comment">//向视图中添加按钮</span></span><br><span class="line">            Button btn2 = <span class="keyword">new</span> Button();</span><br><span class="line">            btn2.Text = <span class="string">&quot;下一步&quot;</span>;</span><br><span class="line">            btn2.Click += Btn2_Click;</span><br><span class="line">            view2.Controls.Add(btn2);</span><br><span class="line">            <span class="comment">//创建第三个视图</span></span><br><span class="line">            View view3 = <span class="keyword">new</span> View();</span><br><span class="line">            <span class="comment">// 把视图添加到视图容器中</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//向视图中添加按钮</span></span><br><span class="line">            Button btn3 = <span class="keyword">new</span> Button();</span><br><span class="line">            btn3.Text = <span class="string">&quot;完成&quot;</span>;</span><br><span class="line">            view3.Controls.Add(btn3);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            multiView.Controls.Add(view1);</span><br><span class="line">            multiView.Controls.Add(view2);</span><br><span class="line">            multiView.Controls.Add(view3);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(multiView);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 切换下一个视图</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Btn2_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            MultiView mv = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> <span class="keyword">this</span>.form1.Controls)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (item <span class="keyword">is</span> MultiView)</span><br><span class="line">                &#123;</span><br><span class="line">                    mv = item <span class="keyword">as</span> MultiView;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mv != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                mv.ActiveViewIndex = <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 切换下一个视图</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Btn1_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            MultiView mv = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> <span class="keyword">this</span>.form1.Controls)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (item <span class="keyword">is</span> MultiView)</span><br><span class="line">                &#123;</span><br><span class="line">                    mv = item <span class="keyword">as</span> MultiView;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mv!=<span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                mv.ActiveViewIndex = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>视图和多视图控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PlaceHolder占位符控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/PlaceHolder%E5%8D%A0%E4%BD%8D%E7%AC%A6%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="PlaceHolder占位符控件"><a href="#PlaceHolder占位符控件" class="headerlink" title="PlaceHolder占位符控件"></a>PlaceHolder占位符控件</h2><p>PlaceHolder 控件用于为代码添加的控件预留空间。PlaceHolder可以添加任何Html控件，甚至包括JavaScript代码。可以使用 Control.Controls 集合动态的添加或删除PlaceHolder中的控件。</p>
+<a id="more"></a>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class PlaceHolder控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">        	<span class="comment">//创建一个按钮</span></span><br><span class="line">            Button btn = <span class="keyword">new</span> Button();</span><br><span class="line">            btn.Text = <span class="string">&quot;按钮&quot;</span>;</span><br><span class="line">            <span class="comment">//把按钮控件添加到PlaceHolder占位符控件中</span></span><br><span class="line">            <span class="keyword">this</span>.PlaceHolder1.Controls.Add(btn);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/PlaceHolder%E5%8D%A0%E4%BD%8D%E7%AC%A6%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>占位符控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Substitution调用方法的控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/Substitution%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="Substitution控件"><a href="#Substitution控件" class="headerlink" title="Substitution控件"></a>Substitution控件</h2><p>Substitution控件可以调用方法，获取方法的返回值。Substitution控件最重要的属性就是MethodName属性，Substitution控件调用的方法有一定的格式要求，具体看下面的示例。</p>
+<a id="more"></a>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">MethodName</td>
+<td align="left">控件调用的方法名</td>
+</tr>
+</tbody></table>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>1.此方法被定义为静态方法<br>2.此方法接受 HttpContext 类型的参数。<br>3.此方法返回 String 类型的值。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class Substitution控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 创建一个Substitution 控件</span></span><br><span class="line">            Substitution sub = <span class="keyword">new</span> Substitution();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 调用方法</span></span><br><span class="line">            sub.MethodName = <span class="string">&quot;GetTime&quot;</span>;</span><br><span class="line">            <span class="comment">// 添加到页面中</span></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(sub);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">GetTime</span>(<span class="params">HttpContext context</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 返回当前时间</span></span><br><span class="line">            <span class="keyword">return</span> DateTime.Now.ToString();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/Substitution%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Table表格控件</title>
+    <url>/%5Bobject%20Object%5D/ASP.NET%E6%8E%A7%E4%BB%B6/Table%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="Table控件-与-TableCell-控件和-TableRow-控件配合，用于创建表格。-对应html里的-Table-，tr，td。"><a href="#Table控件-与-TableCell-控件和-TableRow-控件配合，用于创建表格。-对应html里的-Table-，tr，td。" class="headerlink" title="Table控件 与 TableCell 控件和 TableRow 控件配合，用于创建表格。 对应html里的 Table ，tr，td。"></a>Table控件 与 TableCell 控件和 TableRow 控件配合，用于创建表格。 对应html里的 Table ，tr，td。</h2><a id="more"></a>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">BackImageUrl</td>
+<td align="left">表格的背景图像的 URL。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Caption</td>
+<td align="left">表格的标题（caption）。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">CaptionAlign</td>
+<td align="left">标题的对齐方式。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">CellPadding</td>
+<td align="left">单元格边框与内容的间距。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">CellSpacing</td>
+<td align="left">单元格间距。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">HorizontalAlign</td>
+<td align="left">表格在页面中的水平对齐方式。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">Rows</td>
+<td align="left">表格中的行集合。</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">Cells</td>
+<td align="left">行中的单元格集合</td>
+</tr>
+</tbody></table>
+<h2 id="TableCell属性"><a href="#TableCell属性" class="headerlink" title="TableCell属性"></a>TableCell属性</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">ColumnSpan</td>
+<td align="left">横向合并单元格</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">RowSpan</td>
+<td align="left">竖向合并单元格</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI;</span><br><span class="line"><span class="keyword">using</span> System.Web.UI.WebControls;</span><br><span class="line"></span><br><span class="line">namespace 控件学习</span><br><span class="line">&#123;</span><br><span class="line">    public partial class Table控件 : System.Web.UI.Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 页面加载的时候创建 两个按钮，并添加单机事件</span></span><br><span class="line">            Button button = <span class="keyword">new</span> Button();</span><br><span class="line">            button.Text = <span class="string">&quot;创建表格&quot;</span>;</span><br><span class="line">            button.Click += Button_Click;</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(button);</span><br><span class="line">            Button but = <span class="keyword">new</span> Button();</span><br><span class="line">            but.Text = <span class="string">&quot;合并单元格&quot;</span>;</span><br><span class="line">            but.Click += But_Click;</span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(but);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 合并单元格</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">But_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Button_Click(<span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">            </span><br><span class="line">            Table tab = <span class="literal">null</span>;</span><br><span class="line">            <span class="comment">//获取Table 对象</span></span><br><span class="line">            <span class="keyword">foreach</span> (Control item <span class="keyword">in</span> <span class="keyword">this</span>.form1.Controls)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(item <span class="keyword">is</span> Table)</span><br><span class="line">                &#123;</span><br><span class="line">                    tab = item <span class="keyword">as</span> Table;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (tab!= <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 调用合并单元格的方法</span></span><br><span class="line">                SetRowSpan(tab, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 合并单元格</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;tbl&quot;&gt;</span>Table<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;startRow&quot;&gt;</span>开始行<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;endRow&quot;&gt;</span>开始单元格<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;colIndex&quot;&gt;</span>指定要合并几个单元格<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SetRowSpan</span>(<span class="params">Table tbl, <span class="built_in">int</span> startRow, <span class="built_in">int</span> endRow, <span class="built_in">int</span> colIndex</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="built_in">string</span> text = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="comment">//循环获取每个单元格的数据，然后在删除单元格</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>; i &lt;= colIndex; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">                text += tbl.Rows[startRow].Cells[endRow].Text;</span><br><span class="line">                tbl.Rows[startRow].Cells.RemoveAt(endRow);</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 合并单元格</span></span><br><span class="line">            tbl.Rows[startRow].Cells[endRow].ColumnSpan = colIndex;</span><br><span class="line">            <span class="comment">// 将单元格的数据 添加到合并的单元格中</span></span><br><span class="line">            tbl.Rows[startRow].Cells[endRow].Text = text + tbl.Rows[startRow].Cells[endRow].Text;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 创建表格</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Button_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 创建一个表格</span></span><br><span class="line">            Table tab = <span class="keyword">new</span> Table();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 创建行数组</span></span><br><span class="line">            TableRow[] tableRow = &#123;</span><br><span class="line">                 <span class="keyword">new</span> TableRow(),</span><br><span class="line">                <span class="keyword">new</span> TableRow()</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="comment">// 创建单元格</span></span><br><span class="line">            TableCell[] tableCell = &#123; </span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;1&quot;</span>,BorderWidth= <span class="number">1</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;2&quot;</span>,BorderWidth = <span class="number">1</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;3&quot;</span>,BorderWidth = <span class="number">1</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;4&quot;</span>,BorderWidth = <span class="number">1</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;5&quot;</span>,BorderWidth = <span class="number">1</span>&#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            TableCell[] tableCell2 = &#123;</span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;6&quot;</span>,BorderWidth= <span class="number">1</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;7&quot;</span>,BorderWidth = <span class="number">1</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;8&quot;</span>,BorderWidth = <span class="number">1</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;9&quot;</span>,BorderWidth = <span class="number">1</span>&#125;,</span><br><span class="line">                <span class="keyword">new</span> TableCell()&#123;Text =<span class="string">&quot;10&quot;</span>,BorderWidth = <span class="number">1</span>&#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="comment">//将单元格添加到行中</span></span><br><span class="line">            tableRow[<span class="number">0</span>].Cells.AddRange(tableCell);</span><br><span class="line">            tableRow[<span class="number">1</span>].Cells.AddRange(tableCell2);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//表格中添加行</span></span><br><span class="line">            tab.Rows.AddRange(tableRow);</span><br><span class="line">            <span class="comment">// 将表格添加到页面</span></span><br><span class="line">            <span class="keyword">this</span>.form1.Controls.Add(tab);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/Table%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C1.png"><br>这里是合并后的结果<br><img src="/images/Table%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C2.png"></p>
+]]></content>
+      <categories>
+        <category>ASP.NET控件</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>WEB控件</tag>
+        <tag>表格控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>as 和 is 区别</title>
+    <url>/%5Bobject%20Object%5D/C#%E5%9F%BA%E7%A1%80/as%20%E4%B8%8E%20is/</url>
+    <content><![CDATA[<h2 id="C-中的-is"><a href="#C-中的-is" class="headerlink" title="C#中的 is"></a>C#中的 is</h2><p>检查一个对象是否兼容于其他指定的类型,并返回一个Bool值,如果一个对象是某个类型或是其父类型的话就返回为true，否则的话就会返回为false。永远不会抛出异常<br>如果对象引用为null，那么is操作符总是返回为false，因为没有对象可以检查其类型。</p>
+<a id="more"></a>
+<p>示例</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">object</span> o = <span class="keyword">new</span> <span class="built_in">object</span>();</span><br><span class="line"><span class="keyword">if</span> (o <span class="keyword">is</span> Label)</span><br><span class="line">&#123;</span><br><span class="line">    Label lb = (Label)o;</span><br><span class="line">    Response.Write(<span class="string">&quot;类型转换成功&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Response.Write(<span class="string">&quot;类型转换失败&quot;</span>);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="C-中的-as"><a href="#C-中的-as" class="headerlink" title="C#中的 as"></a>C#中的 as</h2><p>1、检查对象类型的兼容性，并返回转换结果，如果不兼容则返回null；<br>2、不会抛出异常；<br>3、如果结果判断为空，则强制执行类型转换将抛出NullReferenceException异常；<br>4、用as来进行类型转换的时候，所要转换的对象类型必须是目标类型或者转换目标类型的派生类型<br>示例</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">object</span> o = <span class="keyword">new</span> <span class="built_in">object</span>();    </span><br><span class="line">Label lb = o <span class="keyword">as</span> Label;    </span><br><span class="line"><span class="keyword">if</span> (lb == <span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Response.Write(<span class="string">&quot;类型转换失败&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;      </span><br><span class="line">    Response.Write(<span class="string">&quot;类型转换成功&quot;</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="as与is的区别"><a href="#as与is的区别" class="headerlink" title="as与is的区别"></a>as与is的区别</h2><p>1、AS在转换的同事兼判断兼容性，如果无法进行转换，则 as 返回 null（没有产生新的对象）而不是引发异常。有了AS我想以后就不要再用try-catch来做类型转换的判断了。因此as转换成功要判断是否为null。</p>
+<p>2、AS是引用类型类型的转换或者装箱转换，不能用与值类型的转换。如果是值类型只能结合is来强制转换<br>3、IS只是做类型兼容判断，并不执行真正的类型转换。返回true或false，不会返回null，对象为null也会返回false。</p>
+<p>4、AS模式的效率要比IS模式的高，因为借助IS进行类型转换的化，需要执行两次类型兼容检查。而AS只需要做一次类型兼容，一次null检查，null检查要比类型兼容检查快。</p>
+<h2 id="在进行类型转换的时候，可以按照如下的方式进行选择"><a href="#在进行类型转换的时候，可以按照如下的方式进行选择" class="headerlink" title="在进行类型转换的时候，可以按照如下的方式进行选择"></a>在进行类型转换的时候，可以按照如下的方式进行选择</h2><p>1、Object =&gt; 已知引用类型<br>使用as操作符来完成</p>
+<p>2、Object =&gt; 已知值类型<br>先使用is操作符来进行判断，再用类型强转方式进行转换</p>
+<p>3、已知引用类型之间转换<br>首先需要相应类型提供转换函数，再用类型强转方式进行转换</p>
+<p>4、已知值类型之间转换<br>最好使用系统提供的Convert类所涉及的静态方法</p>
+<h2 id="int-和Int32-Parse-Convert-ToInt32-三者的区别"><a href="#int-和Int32-Parse-Convert-ToInt32-三者的区别" class="headerlink" title="(int)和Int32.Parse(),Convert.ToInt32()三者的区别"></a>(int)和Int32.Parse(),Convert.ToInt32()三者的区别</h2><p>1、(int)转换：用在数值范围大的类型转换成数值范围小的类型时使用，但是如果被转换的数值大于或者小于数值范围，则得到一个错误的结果，利用这种转换方式不能将string转换成int，会报错。</p>
+<p>2、Int32.Parse()转换：在符合数字格式的string到int类型转换过程中使用，并可以对错误的string数字格式的抛出相应的异常。</p>
+<p>3、Convert.ToInt32()转换：使用这种转换，所提供的字符串必须是数值的有效表达方式，该数还必须不是溢出的数。否则抛出异常。</p>
+]]></content>
+      <categories>
+        <category>C#基础</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>C#基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C#中的5种修饰符</title>
+    <url>/%5Bobject%20Object%5D/C#%E5%9F%BA%E7%A1%80/C#-%E4%B8%AD%E7%9A%845%E7%A7%8D%E4%BF%AE%E9%A5%B0%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="关于C-中的5种修饰符"><a href="#关于C-中的5种修饰符" class="headerlink" title="关于C#中的5种修饰符"></a>关于C#中的5种修饰符</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public （公有的）谁都可以访问</span><br><span class="line">private （私有的）只限于本类成员访问。 子类和实例都不能访问。</span><br><span class="line">protected （受保护的）只限于本类和子类访问，实例不能访问。</span><br><span class="line">internal  （内部的） 限于当前命名空间下访问，其他命名空间不能访问</span><br><span class="line">protected internal（受保护内部的）只限于当前命名空间下的本类或子类访问，实例和其他命名空间不能访问</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="修饰符的详细介绍"><a href="#修饰符的详细介绍" class="headerlink" title="修饰符的详细介绍"></a>修饰符的详细介绍</h2><h4 id="public-（公有的）"><a href="#public-（公有的）" class="headerlink" title="public （公有的）"></a>public （公有的）</h4><p>public 共有的，这个比较好理解了，公有的也就是说谁都可以访问它，不受任何限制，当前类，子类，实例对象，都可以访问到。。<br>打个比方，就比如说家里有一个车，这个车主说了这是公用车，没有钥匙，谁来都可以用这个车，没有什么限时。下面做个示例演示一下。<br>示例:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace 测试</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// Text1是public 修饰的，所以在这里是可以访问，创建实例的</span></span><br><span class="line">            Text1 text1 = <span class="keyword">new</span> Text1();</span><br><span class="line">            <span class="comment">// t 也是public 修饰的，所以在这里是可以访问，并对其赋值</span></span><br><span class="line">            text1.vehicle = <span class="string">&quot;怎么谁都能调用我！！！ 原来我是public修饰过的&quot;</span>;</span><br><span class="line">            <span class="comment">// 这里通过类的示例名去调用类的方法，方法也public 修饰的</span></span><br><span class="line">            text1.show();</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 这个类 是用public 修饰的，就是说他是公有的 谁都可以访问的</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Text1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> vehicle;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 这是一个public 修饰的测试方法，用来输出的</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">        	<span class="comment">// 这里是一个输出语句</span></span><br><span class="line">            Console.WriteLine(vehicle);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="private-（私有的）"><a href="#private-（私有的）" class="headerlink" title="private （私有的）"></a>private （私有的）</h4><p>只能在当前类内部进行访问使用，就算是子类，实例对象，都访问不到。<br>还是以说家里的那个车，这回这个车主说了这是 私有的，就我一个人可以使用，其余的人谁也不行，就算是车主儿子也不能用。<br>示例:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace 测试</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// Text1是public 修饰的，所以在这里是可以访问，创建实例的</span></span><br><span class="line">            Text1 text1 = <span class="keyword">new</span> Text1();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 这里通过类的示例名去调用类的方法，方法也public 修饰的</span></span><br><span class="line">            text1.show();</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 这个类 是用public 修饰的，就是说他是公有的 谁都可以访问的</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Text1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 这是私有成员，他只能在Text1类中使用，在其他的地方是调用不到的</span></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">string</span> vehicle = <span class="string">&quot;我是private修饰的，所以我只能在Text1中使用&quot;</span>;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 这是一个public 修饰的测试方法，用来输出的 </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// 这里是一个输出语句</span></span><br><span class="line">            Console.WriteLine(vehicle);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="protected-（受保护的）"><a href="#protected-（受保护的）" class="headerlink" title="protected （受保护的）"></a>protected （受保护的）</h4><p>保护访问。只限于本类和子类访问，实例不能访问。<br>还是说家里的那个车，这回车主说了，这个车是我家的宝贝，除了我自己家人，谁也不能用，我谁都不借。<br>示例:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace 测试</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// Text1是public 修饰的，所以在这里是可以访问，创建实例的</span></span><br><span class="line">            Text1 text1 = <span class="keyword">new</span> Text1();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 这里通过类的示例名去调用类的方法，方法也public 修饰的</span></span><br><span class="line">            text1.show1();</span><br><span class="line">            Text2 text2 = <span class="keyword">new</span> Text2();</span><br><span class="line">            text2.show2();</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 这个类 是用public 修饰的，就是说他是公有的 谁都可以访问的</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Text1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 这是受保护的成员，他只能在Text1和Text1的子类可以使用</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="built_in">string</span> vehicle = <span class="string">&quot;我是protected修饰的，所以我只能在Text1和Text1的子类可以使用&quot;</span>;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 这是一个public 修饰的测试方法，用来输出的 </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show1</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;这是父类调用vehicle&quot;</span>);</span><br><span class="line">            <span class="comment">// 这里是一个输出语句</span></span><br><span class="line">            Console.WriteLine(vehicle);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 这里是用public 修饰的，并且继承 Text1</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Text2</span> : <span class="title">Text1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 这是一个public 修饰的测试方法，用来输出的 </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show2</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;这是子类调用vehicle&quot;</span>);</span><br><span class="line">            <span class="comment">// 这里是一个输出语句</span></span><br><span class="line">            Console.WriteLine(vehicle);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="internal-（内部的）"><a href="#internal-（内部的）" class="headerlink" title="internal  （内部的）"></a>internal  （内部的）</h4><p>内部访问。只限于本项目内访问，也就是说可以在当前的命名空间下面内部随意访问，其他命名空间下面不能是访问。<br>示例:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace 测试</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">// Text1是public 修饰的，所以在这里是可以访问，创建实例的</span></span><br><span class="line">            Text1 text1 = <span class="keyword">new</span> Text1();</span><br><span class="line">            text1.vehicle = <span class="string">&quot;vehicle是在当前命名空间下面，可以访问得到&quot;</span>;</span><br><span class="line">            <span class="comment">// 这里通过类的示例名去调用类的方法，方法也public 修饰的</span></span><br><span class="line">            text1.show1();</span><br><span class="line">            </span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 这个类 是用public 修饰的，就是说他是公有的 谁都可以访问的</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Text1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 这是内部的的成员，他只能在 测试这个命名空间下面被访问</span></span><br><span class="line">        <span class="keyword">internal</span> <span class="built_in">string</span> vehicle ;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 这是一个public 修饰的测试方法，用来输出的 </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show1</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;这是父类调用vehicle&quot;</span>);</span><br><span class="line">            <span class="comment">// 这里是一个输出语句</span></span><br><span class="line">            Console.WriteLine(vehicle);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"><span class="keyword">using</span> 测试;</span><br><span class="line"></span><br><span class="line">namespace 测试2</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">        	<span class="comment">// Text1是public 修饰的，所以在这里是可以访问，创建实例的</span></span><br><span class="line">            Text1 text1 = <span class="keyword">new</span> Text1();</span><br><span class="line">            <span class="comment">//vehicle 成员是用 internal修饰的，所以无法访问</span></span><br><span class="line">            <span class="comment">//text1.vehicle = &quot;无法访问&quot;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="protected-internal-（受保护内部的）"><a href="#protected-internal-（受保护内部的）" class="headerlink" title="protected internal （受保护内部的）"></a>protected internal （受保护内部的）</h4><p>这个 访问修饰符 和protected 没什么区别，这里是说内部受保护的，在外部访问不到，protected受保护的，在外部同样也访问不到，至于在内部里面访问，protected internal 和 单独的protected 没什么区别</p>
+]]></content>
+      <categories>
+        <category>C#基础</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>C#基础</tag>
+        <tag>访问修饰符</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# 之 static的用法详解</title>
+    <url>/%5Bobject%20Object%5D/C#%E5%9F%BA%E7%A1%80/C#-%E4%B9%8B-static%E7%9A%84%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="C-之-static的用法详解"><a href="#C-之-static的用法详解" class="headerlink" title="C# 之 static的用法详解"></a>C# 之 static的用法详解</h2><h4 id="一、静态类"><a href="#一、静态类" class="headerlink" title="一、静态类"></a>一、静态类</h4><p>静态类与非静态类的重要区别在于静态类不能实例化，也就是说，不能使用 new 关键字创建静态类类型的变量。在声明一个类时使用static关键字，以后不能在对这个类的成员做修改。</p>
+<p>1、静态类的主要特性：<br>　　[1] 只能包含静态成员。<br>　　[2] 不能包含构造函数。<br>　　[3] 静态类 是不能被继承和继承别的类，也不能被实例化。<br>　　[4] 如果一个类下面的所有成员，都需要被共享，那么可以把这个类定义为静态类。</p>
+<a id="more"></a>
+
+<p>2、静态类与私有构造函数区别:<br>　　[1] 私有构造器方式仍然可以从类的内部对类进行实例化，而静态类禁止从任何地方实例化类，其中包括从类自身内部。<br>　　[2] C#编译器会自动把它标记为sealed。这个关键字将类指定为不可扩展；换言之，不能从它派生出其他类。
+　　</p>
+<h4 id="二、静态成员"><a href="#二、静态成员" class="headerlink" title="二、静态成员"></a>二、静态成员</h4><p>　　1、通过static关键字修饰，是属于类，实例成员属于对象，在这个类第一次加载的时候，这个类下面的所有静态成员会被加载。<br>　　2、静态成员只被创建一次，所以静态成员只有一份，实例成员有多少个对象，就有多少份。<br>　　3、类加载的时候，所有的静态成员就会被创建在“静态存储区”里面，一旦创建直到程序退出，才会被回收。<br>　　4、成员需要被共享的时候，方法需要被反复调用的时候，就可以把这些成员定义为静态成员。<br>　　5、this/base 关键字在静态方法中不能使用，因为有可能对象还不存在。<br>　　6、可以创建这个类的对象，制定对象的成员在静态方法中操作。<br>　　7、在实例方法中，可以调用静态成员，因为这个时候静态成员肯定存在。<br>　　8、非静态类可以包含静态的方法、字段、属性或事件。<br>　　9、无论对一个类创建多少个实例，它的静态成员都只有一个副本。<br>　　10、静态方法只能被重载，而不能被重写，因为静态方法不属于类的实例成员。<br>　　11、虽然字段不能声明为 static const，但 const 字段的行为在本质上是静态的。这样的字段属于类，不属于类的实例。</p>
+<h4 id="三、静态方法"><a href="#三、静态方法" class="headerlink" title="三、静态方法"></a>三、静态方法</h4><p>　　1、静态方法是不属于特定对象的方法；<br>　　2、静态方法可以访问静态成员；<br>　　3、静态方法不可以直接访问实例成员，可以在实例函数调用的情况下，实例成员做为参数传给静态方法；<br>　　4、静态方法也不能直接调用实例方法，可以间接调用，首先要创建一个类的实例，然后通过这一特定对象来调用静态方法。</p>
+<h4 id="四、静态构造函数"><a href="#四、静态构造函数" class="headerlink" title="四、静态构造函数"></a>四、静态构造函数</h4><p>　　1、静态类可以有静态构造函数，静态构造函数不可继承；<br>　　2、静态构造函数可以用于静态类，也可用于非静态类；<br>　　3、静态构造函数无访问修饰符、无参数，只有一个 static 标志；<br>　　4、静态构造函数不可被直接调用，当创建类实例或引用任何静态成员之前，静态构造函数被自动执行，并且只执行一次。</p>
+]]></content>
+      <categories>
+        <category>C#基础</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>C#基础</tag>
+        <tag>静态的</tag>
+        <tag>static</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS选择器的权重</title>
+    <url>/%5Bobject%20Object%5D/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E6%9D%83%E9%87%8D/</url>
+    <content><![CDATA[<h2 id="CSS选择器的优先权"><a href="#CSS选择器的优先权" class="headerlink" title="CSS选择器的优先权"></a>CSS选择器的优先权</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">选择器</th>
+<th align="left">选择器权重</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">继承或者 *</td>
+<td align="left">0,0,0,0</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">元素选择器</td>
+<td align="left">0,0,0,1</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">类选择器，属性选择器，伪类选择器</td>
+<td align="left">0,0,1,0</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">ID选择器</td>
+<td align="left">0,1,0,0</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">行内样式，style=””</td>
+<td align="left">1,0,0,0</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">!important</td>
+<td align="left">无穷大</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>选择器优先权</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>类</title>
+    <url>/%5Bobject%20Object%5D/C#%E5%9F%BA%E7%A1%80/%E7%B1%BB/</url>
+    <content><![CDATA[<h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><p>1 C# 中类的默认的修饰符是internal</p>
+]]></content>
+      <categories>
+        <category>C#基础</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>清除浮动</title>
+    <url>/%5Bobject%20Object%5D/CSS/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
+    <content><![CDATA[<h2 id="为什么清除浮动"><a href="#为什么清除浮动" class="headerlink" title="为什么清除浮动"></a>为什么清除浮动</h2><p>浮动会给元素带来一定的不良效果，清除浮动就是为了清除浮动带来的不良效果。</p>
+<a id="more"></a>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h4 id="1-结尾处加空div标签-clear-both"><a href="#1-结尾处加空div标签-clear-both" class="headerlink" title="1.结尾处加空div标签 clear:both"></a>1.结尾处加空div标签 clear:both</h4><p>原理：先添加一个空div，再利用clear:both清除浮动，让父级div能自动获取到高度（添加span等inline标签无效）<br>缺点：如果页面浮动布局多，就要增加很多空div，让人感觉很不好</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span> </span><br><span class="line"><span class="css">			<span class="selector-class">.box</span>&#123;</span></span><br><span class="line">				background: red;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 左边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.left</span>&#123;</span></span><br><span class="line">		        background: blue;</span><br><span class="line"><span class="css">		        <span class="comment">/*设置左浮动*/</span></span></span><br><span class="line">		        float: left;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">height</span>: 100<span class="selector-tag">px</span>;<span class="selector-tag">width</span><span class="selector-pseudo">:40</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 右边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.right</span>&#123;</span></span><br><span class="line">		    	background: pink;</span><br><span class="line"><span class="css">		    	<span class="comment">/*设置右浮动*/</span></span></span><br><span class="line">		    	float: right; </span><br><span class="line"><span class="css">		    	<span class="selector-tag">height</span>: 100<span class="selector-tag">px</span>;<span class="selector-tag">width</span><span class="selector-pseudo">:50</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/*清除浮动*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.clear</span>&#123;</span></span><br><span class="line">				clear: both;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 最后一个div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.footer</span>&#123;</span></span><br><span class="line">				background: orange;height: 50px;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>Right<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">			  /* 空div 用来清除浮动的*/</span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clear&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/CSS%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C1.png"></p>
+<h4 id="2-父级div定义-伪类-after-和-zoom"><a href="#2-父级div定义-伪类-after-和-zoom" class="headerlink" title="2.父级div定义 伪类:after 和 zoom"></a>2.父级div定义 伪类:after 和 zoom</h4><p>原理：IE8以上和非IE浏览器才支持:after，原理和方法2有点类似，zoom(IE转有属性)可解决ie6,ie7浮动问题<br>优点：浏览器支持好、不容易出现怪问题（目前：大型网站都有使用，如：腾迅，网易，新浪等等）</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span> </span><br><span class="line"><span class="css">			<span class="selector-class">.box</span>&#123;</span></span><br><span class="line">				background: red;</span><br><span class="line">				width: 800px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 左边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.left</span>&#123;</span></span><br><span class="line">		        background: blue;</span><br><span class="line"><span class="css">		        <span class="comment">/*设置左浮动*/</span></span></span><br><span class="line">		        float: left;</span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:40</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 右边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.right</span>&#123;</span></span><br><span class="line">		    	background: pink;</span><br><span class="line"><span class="css">		    	<span class="comment">/*设置右浮动*/</span></span></span><br><span class="line">		    	float: right; </span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:50</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 最后一个div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.footer</span>&#123;</span></span><br><span class="line">				background: orange;</span><br><span class="line">				width: 800px;</span><br><span class="line">				height: 50px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line">				&#125;</span><br><span class="line"><span class="css">			<span class="comment">/*清除浮动代码*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span></span><br><span class="line"><span class="css">				<span class="selector-tag">display</span><span class="selector-pseudo">:block</span>;</span></span><br><span class="line"><span class="css">				<span class="selector-tag">clear</span><span class="selector-pseudo">:both</span>;</span></span><br><span class="line"><span class="css">				<span class="selector-tag">content</span><span class="selector-pseudo">:&quot;&quot;</span>;</span></span><br><span class="line">				visibility:</span><br><span class="line"><span class="css">				<span class="selector-tag">hidden</span>;<span class="selector-tag">height</span><span class="selector-pseudo">:0</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.clearfix</span>&#123;</span></span><br><span class="line"><span class="css">				<span class="comment">/* IE6 7 专有*/</span></span></span><br><span class="line"><span class="css">				<span class="selector-tag">zoom</span><span class="selector-pseudo">:1</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box clearfix&quot;</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>Right<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="显示结果-1"><a href="#显示结果-1" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/CSS%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C1.png"></p>
+<h4 id="3-父级div定义-双伪类-before-after-和-zoom"><a href="#3-父级div定义-双伪类-before-after-和-zoom" class="headerlink" title="3.父级div定义 双伪类:before,:after 和 zoom"></a>3.父级div定义 双伪类:before,:after 和 zoom</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span> </span><br><span class="line"><span class="css">			<span class="selector-class">.box</span>&#123;</span></span><br><span class="line">				background: red;</span><br><span class="line">				width: 800px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 左边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.left</span>&#123;</span></span><br><span class="line">		        background: blue;</span><br><span class="line"><span class="css">		        <span class="comment">/*设置左浮动*/</span></span></span><br><span class="line">		        float: left;</span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:40</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 右边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.right</span>&#123;</span></span><br><span class="line">		    	background: pink;</span><br><span class="line"><span class="css">		    	<span class="comment">/*设置右浮动*/</span></span></span><br><span class="line">		    	float: right; </span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:50</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 最后一个div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.footer</span>&#123;</span></span><br><span class="line">				background: orange;</span><br><span class="line">				width: 800px;</span><br><span class="line">				height: 50px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line">				&#125;</span><br><span class="line"><span class="css">			<span class="comment">/*清除浮动代码*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.clearfix</span><span class="selector-pseudo">:before</span>,<span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span></span><br><span class="line"><span class="css">			   <span class="selector-tag">content</span><span class="selector-pseudo">:&quot;&quot;</span>;</span></span><br><span class="line"><span class="css">			   <span class="selector-tag">display</span><span class="selector-pseudo">:table</span>;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span></span><br><span class="line"><span class="css">			  <span class="selector-tag">clear</span><span class="selector-pseudo">:both</span>;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.clearfix</span>&#123;</span></span><br><span class="line"><span class="css">			  *<span class="selector-tag">zoom</span><span class="selector-pseudo">:1</span>;</span></span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box clearfix&quot;</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>Right<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="显示结果-2"><a href="#显示结果-2" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/CSS%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C1.png"></p>
+<h4 id="4-父级div定义-display-table"><a href="#4-父级div定义-display-table" class="headerlink" title="4.父级div定义 display:table"></a>4.父级div定义 display:table</h4><p>原理：将div属性变成表格<br>缺点：会产生新的未知问题。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span> </span><br><span class="line"><span class="css">			<span class="selector-class">.box</span>&#123;</span></span><br><span class="line">				background: red;</span><br><span class="line">				width: 800px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line"><span class="css">				<span class="comment">/* 设置这个可以清除浮动*/</span></span></span><br><span class="line"><span class="css">				<span class="selector-tag">display</span><span class="selector-pseudo">:table</span>;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 左边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.left</span>&#123;</span></span><br><span class="line">		        background: blue;</span><br><span class="line"><span class="css">		        <span class="comment">/*设置左浮动*/</span></span></span><br><span class="line">		        float: left;</span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:40</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 右边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.right</span>&#123;</span></span><br><span class="line">		    	background: pink;</span><br><span class="line"><span class="css">		    	<span class="comment">/*设置右浮动*/</span></span></span><br><span class="line">		    	float: right; </span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:50</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 最后一个div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.footer</span>&#123;</span></span><br><span class="line">				background: orange;</span><br><span class="line">				width: 800px;</span><br><span class="line">				height: 50px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>Right<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="显示结果-3"><a href="#显示结果-3" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/CSS%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C1.png"></p>
+<h4 id="5-父级div添加-overflow-hidden"><a href="#5-父级div添加-overflow-hidden" class="headerlink" title="5.父级div添加 overflow:hidden"></a>5.父级div添加 overflow:hidden</h4><p>原理：必须定义width或zoom:1,同时不能定义height，使用overflow:hidden/auto时，浏览器会自动检查浮动区域的高度.<br>缺点：<br>（1）overflow:hidden:不能和position一起用，因为超出的尺寸的会被隐藏。<br>（2）overflow:auto:内部宽高超过父级div时，会出现滚动条。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span> </span><br><span class="line"><span class="css">			<span class="selector-class">.box</span>&#123;</span></span><br><span class="line">				background: red;</span><br><span class="line">				width: 800px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line"><span class="css">				<span class="comment">/* 设置这个可以清除浮动*/</span></span></span><br><span class="line"><span class="css">				<span class="selector-tag">overflow</span><span class="selector-pseudo">:hidden</span></span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 左边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.left</span>&#123;</span></span><br><span class="line">		        background: blue;</span><br><span class="line"><span class="css">		        <span class="comment">/*设置左浮动*/</span></span></span><br><span class="line">		        float: left;</span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:40</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 右边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.right</span>&#123;</span></span><br><span class="line">		    	background: pink;</span><br><span class="line"><span class="css">		    	<span class="comment">/*设置右浮动*/</span></span></span><br><span class="line">		    	float: right; </span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:50</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 最后一个div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.footer</span>&#123;</span></span><br><span class="line">				background: orange;</span><br><span class="line">				width: 800px;</span><br><span class="line">				height: 50px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>Right<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="显示结果-4"><a href="#显示结果-4" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/CSS%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C1.png"></p>
+<h4 id="6-父级div定义-height"><a href="#6-父级div定义-height" class="headerlink" title="6.父级div定义 height"></a>6.父级div定义 height</h4><p>原理：手动设置父级div的height，解决了父级div无法自动获取高度的问题。<br>缺点：只适合高度固定的布局，如果高度和父级div不一样时，会产生问题</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span> </span><br><span class="line"><span class="css">			<span class="selector-class">.box</span>&#123;</span></span><br><span class="line">				background: red;</span><br><span class="line">				width: 800px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line">				height: 100px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 左边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.left</span>&#123;</span></span><br><span class="line">		        background: blue;</span><br><span class="line"><span class="css">		        <span class="comment">/*设置左浮动*/</span></span></span><br><span class="line">		        float: left;</span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:40</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 右边的div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.right</span>&#123;</span></span><br><span class="line">		    	background: pink;</span><br><span class="line"><span class="css">		    	<span class="comment">/*设置右浮动*/</span></span></span><br><span class="line">		    	float: right; </span><br><span class="line">		    	height: 100px;</span><br><span class="line"><span class="css">		    	<span class="selector-tag">width</span><span class="selector-pseudo">:50</span>%;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 最后一个div*/</span></span></span><br><span class="line"><span class="css">			<span class="selector-class">.footer</span>&#123;</span></span><br><span class="line">				background: orange;</span><br><span class="line">				width: 800px;</span><br><span class="line">				height: 50px;</span><br><span class="line">				margin: 0 auto;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>Right<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="显示结果-5"><a href="#显示结果-5" class="headerlink" title="显示结果"></a>显示结果</h2><p><img src="/images/CSS%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C1.png"></p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>清楚浮动</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo + icarus主题</title>
+    <url>/%5Bobject%20Object%5D/Hexo%E5%8D%9A%E5%AE%A2/hexo-icarus%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="hexo-环境配置"><a href="#hexo-环境配置" class="headerlink" title="hexo 环境配置"></a>hexo 环境配置</h2><ol>
+<li>安装Node.js  下载地址：<a href="https://nodejs.org/en/">https://nodejs.org/en/</a></li>
+<li>安装Git  下载地址：<a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></li>
+<li>下载之后就正常安装就可以，和普通的安装文件都一样</li>
+</ol>
+<a id="more"></a>
+
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>1.在电脑盘中创建一个博客的文件夹，这里可以随便找地方，最后不要在C盘。我这里是在D盘创建的blog文件夹。<br>2.在blog 文件夹中 点击鼠标右键 看到如图1，点击Git Bash Here。</p>
+<p>图1<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/1.png"></p>
+<p>3.安装hexo的环境，在打开的 Git Bash Here 中输入 npm install hexo-cli -g 然后按回车。如图2</p>
+<p>图2<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/2.png"></p>
+<p>4.安装完hexo，我们来创建博客，继续在Git Bash Here 中输入 hexo init bolg 按回车, 这里的bolg是博客名称，可以随便起名。这个时候我们的blog文件夹中就会多一个博客的文件夹。看图3。</p>
+<p>图3<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/3.png"></p>
+<p><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/4.png"></p>
+<p>5.点击Hardy文件夹，进入我们的博客，如图4 ，</p>
+<p>图4<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/5.png"></p>
+<p>6.在空白处鼠标右键 找到Git Bash Here 点击打开。 然后输入 npm install 如图5。</p>
+<p>图5<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/6.png"></p>
+<p>7.在输入hexo s 命令启动服务，默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a><br>在浏览器中输入网址，我们简单的博客就搭建好了</p>
+<h2 id="更换icarus主题"><a href="#更换icarus主题" class="headerlink" title="更换icarus主题"></a>更换icarus主题</h2><p>1.在博客的文件夹下，点击Git Bash Here 输入 git clone <a href="https://github.com/ppoffice/hexo-theme-icarus.git">https://github.com/ppoffice/hexo-theme-icarus.git</a> themes/icarus 按回车  将主题下载到themes文件夹下。如图6</p>
+<p>图6<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/7.png"></p>
+<p>2.打开themes文件夹，里面就会有一个icarus文件夹，这就是icarus主题文件夹，然后我们用记事本打开博客文件夹下的 _config.yml 配置文件， 按ctrl+f 然后搜索 theme。出现如图7，我们把后面的landscape 该改成 icarus 保存关闭即可。<br>图7<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/8.png"><br>3. 输入 hexo s   显示如图8 ，提示缺少cheerio依赖。</p>
+<p>图8<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/9.png"></p>
+<p>4.执行npm i cheerio -S命令进行安装即可，-S指安装并将其保存到当前项目的配置中，下次就会统一安装了。如图9</p>
+<p>图9<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/10.png"></p>
+<p>5.最后在输入hexo s 命令启动服务，如果启动失败，关闭在打开在输入一下。</p>
+<p>图9<br><img src="/images/hexo+icarus%E4%B8%BB%E9%A2%98/11.png"></p>
+<p>6.在浏览器中输入网址，<a href="http://localhost:4000/">http://localhost:4000/</a><br>我们的博客+ 主题配置完成。</p>
+<h2 id="icarus主题配置"><a href="#icarus主题配置" class="headerlink" title="icarus主题配置"></a>icarus主题配置</h2><p>配置icarus主题 去翻译一下主题的文件中，基本上就知道每个文件夹里是什么功能，icarus主题的配置也是_config.yml配置文件</p>
+]]></content>
+      <categories>
+        <category>Hexo博客</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo简单命令</title>
+    <url>/%5Bobject%20Object%5D/Hexo%E5%8D%9A%E5%AE%A2/hexo%E7%AE%80%E5%8D%95%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="hexo简单命令"><a href="#hexo简单命令" class="headerlink" title="hexo简单命令"></a>hexo简单命令</h2><h4 id="init"><a href="#init" class="headerlink" title="init"></a>init</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init 博客名</span><br></pre></td></tr></table></figure>
+<p>新建一个网站，如果不写博客名，默认在当前的文件夹建立网站</p>
+<a id="more"></a>
+
+<h4 id="new"><a href="#new" class="headerlink" title="new"></a>new</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;文章名&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>新建一篇文章。如果没有设置 文章名 的话，使用默认文章名</p>
+<h4 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate 也可以简写 hexo g</span><br></pre></td></tr></table></figure>
+<p>生成静态文件。</p>
+<h4 id="server"><a href="#server" class="headerlink" title="server"></a>server</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server 也可以简写 hexo s</span><br></pre></td></tr></table></figure>
+<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<h4 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy 也可以简写 hexo d</span><br></pre></td></tr></table></figure>
+<p>部署网站。</p>
+]]></content>
+      <categories>
+        <category>Hexo博客</category>
+      </categories>
+      <tags>
+        <tag>hexo命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NexT 自带的语法高亮插件支持的语言列表</title>
+    <url>/%5Bobject%20Object%5D/Hexo%E5%8D%9A%E5%AE%A2/NexT%20%E8%87%AA%E5%B8%A6%E7%9A%84%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6%E6%94%AF%E6%8C%81%E7%9A%84%E8%AF%AD%E8%A8%80%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Next主题中可以通过markdown 中的代码块方式开启某种语言的语法高亮：</p>
+<h2 id="语言列表"><a href="#语言列表" class="headerlink" title="语言列表"></a>语言列表</h2><a id="more"></a> 
+<table>
+<thead>
+<tr>
+<th align="left">语言</th>
+<th align="left">支持的名字(不区分大小写)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1C</td>
+<td align="left">1c</td>
+</tr>
+<tr>
+<td align="left">Ada</td>
+<td align="left">ada</td>
+</tr>
+<tr>
+<td align="left">ARM assembler</td>
+<td align="left">armasm, arm</td>
+</tr>
+<tr>
+<td align="left">AVR assembler</td>
+<td align="left">avrasm</td>
+</tr>
+<tr>
+<td align="left">ActionScript</td>
+<td align="left">actionscript, as</td>
+</tr>
+<tr>
+<td align="left">Apache</td>
+<td align="left">apache, apacheconf</td>
+</tr>
+<tr>
+<td align="left">AppleScript</td>
+<td align="left">applescript, osascript</td>
+</tr>
+<tr>
+<td align="left">AsciiDoc</td>
+<td align="left">asciidoc, adoc</td>
+</tr>
+<tr>
+<td align="left">AspectJ</td>
+<td align="left">aspectj</td>
+</tr>
+<tr>
+<td align="left">AutoHotkey</td>
+<td align="left">autohotkey</td>
+</tr>
+<tr>
+<td align="left">AutoIt</td>
+<td align="left">autoit</td>
+</tr>
+<tr>
+<td align="left">Axapta</td>
+<td align="left">axapta</td>
+</tr>
+<tr>
+<td align="left">Bash</td>
+<td align="left">bash, sh, zsh</td>
+</tr>
+<tr>
+<td align="left">Basic</td>
+<td align="left">basic</td>
+</tr>
+<tr>
+<td align="left">BNF</td>
+<td align="left">bnf</td>
+</tr>
+<tr>
+<td align="left">Brainfuck</td>
+<td align="left">brainfuck, bf</td>
+</tr>
+<tr>
+<td align="left">C#</td>
+<td align="left">cs, csharp</td>
+</tr>
+<tr>
+<td align="left">C++</td>
+<td align="left">cpp, c, cc, h, c++, h++, hpp</td>
+</tr>
+<tr>
+<td align="left">C/AL</td>
+<td align="left">cal</td>
+</tr>
+<tr>
+<td align="left">Cache Object Script</td>
+<td align="left">cos, cls</td>
+</tr>
+<tr>
+<td align="left">CMake</td>
+<td align="left">cmake, cmake.in</td>
+</tr>
+<tr>
+<td align="left">CSP</td>
+<td align="left">csp</td>
+</tr>
+<tr>
+<td align="left">CSS</td>
+<td align="left">css</td>
+</tr>
+<tr>
+<td align="left">Cap’n Proto</td>
+<td align="left">capnproto, capnp</td>
+</tr>
+<tr>
+<td align="left">Clojure</td>
+<td align="left">clojure, clj</td>
+</tr>
+<tr>
+<td align="left">CoffeeScript</td>
+<td align="left">coffeescript, coffee, cson, iced</td>
+</tr>
+<tr>
+<td align="left">Crmsh</td>
+<td align="left">crmsh, crm, pcmk</td>
+</tr>
+<tr>
+<td align="left">Crystal</td>
+<td align="left">crystal, cr</td>
+</tr>
+<tr>
+<td align="left">D</td>
+<td align="left">d</td>
+</tr>
+<tr>
+<td align="left">DNS Zone file</td>
+<td align="left">dns, zone, bind</td>
+</tr>
+<tr>
+<td align="left">DOS</td>
+<td align="left">dos, bat, cmd</td>
+</tr>
+<tr>
+<td align="left">Dart</td>
+<td align="left">dart</td>
+</tr>
+<tr>
+<td align="left">Delphi</td>
+<td align="left">delphi, dpr, dfm, pas, pascal, freepascal, lazarus, lpr, lfm</td>
+</tr>
+<tr>
+<td align="left">Diff</td>
+<td align="left">diff, patch</td>
+</tr>
+<tr>
+<td align="left">Django</td>
+<td align="left">django, jinja</td>
+</tr>
+<tr>
+<td align="left">Dockerfile</td>
+<td align="left">dockerfile, docker</td>
+</tr>
+<tr>
+<td align="left">DTS (Device Tree)</td>
+<td align="left">dts</td>
+</tr>
+<tr>
+<td align="left">Dust</td>
+<td align="left">dust, dst</td>
+</tr>
+<tr>
+<td align="left">Elixir</td>
+<td align="left">elixir</td>
+</tr>
+<tr>
+<td align="left">Elm</td>
+<td align="left">elm</td>
+</tr>
+<tr>
+<td align="left">Erlang</td>
+<td align="left">erlang, erl</td>
+</tr>
+<tr>
+<td align="left">F#</td>
+<td align="left">fsharp, fs</td>
+</tr>
+<tr>
+<td align="left">FIX</td>
+<td align="left">fix</td>
+</tr>
+<tr>
+<td align="left">Fortran</td>
+<td align="left">fortran, f90, f95</td>
+</tr>
+<tr>
+<td align="left">G-Code</td>
+<td align="left">gcode, nc</td>
+</tr>
+<tr>
+<td align="left">Gams</td>
+<td align="left">gams, gms</td>
+</tr>
+<tr>
+<td align="left">GAUSS</td>
+<td align="left">gauss, gss</td>
+</tr>
+<tr>
+<td align="left">Gherkin</td>
+<td align="left">gherkin</td>
+</tr>
+<tr>
+<td align="left">Go</td>
+<td align="left">go, golang</td>
+</tr>
+<tr>
+<td align="left">Golo</td>
+<td align="left">golo, gololang</td>
+</tr>
+<tr>
+<td align="left">Gradle</td>
+<td align="left">gradle</td>
+</tr>
+<tr>
+<td align="left">Groovy</td>
+<td align="left">groovy</td>
+</tr>
+<tr>
+<td align="left">HTML, XML</td>
+<td align="left">xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist</td>
+</tr>
+<tr>
+<td align="left">HTTP</td>
+<td align="left">http, https</td>
+</tr>
+<tr>
+<td align="left">Haml</td>
+<td align="left">haml</td>
+</tr>
+<tr>
+<td align="left">Handlebars</td>
+<td align="left">handlebars, hbs, html.hbs, html.handlebars</td>
+</tr>
+<tr>
+<td align="left">Haskell</td>
+<td align="left">haskell, hs</td>
+</tr>
+<tr>
+<td align="left">Haxe</td>
+<td align="left">haxe, hx</td>
+</tr>
+<tr>
+<td align="left">Ini</td>
+<td align="left">ini</td>
+</tr>
+<tr>
+<td align="left">Inform7</td>
+<td align="left">inform7, i7</td>
+</tr>
+<tr>
+<td align="left">IRPF90</td>
+<td align="left">irpf90</td>
+</tr>
+<tr>
+<td align="left">JSON</td>
+<td align="left">json</td>
+</tr>
+<tr>
+<td align="left">Java</td>
+<td align="left">java, jsp</td>
+</tr>
+<tr>
+<td align="left">JavaScript</td>
+<td align="left">javascript, js, jsx</td>
+</tr>
+<tr>
+<td align="left">Lasso</td>
+<td align="left">lasso, ls, lassoscript</td>
+</tr>
+<tr>
+<td align="left">Less</td>
+<td align="left">less</td>
+</tr>
+<tr>
+<td align="left">Lisp</td>
+<td align="left">lisp</td>
+</tr>
+<tr>
+<td align="left">LiveCode Server</td>
+<td align="left">livecodeserver</td>
+</tr>
+<tr>
+<td align="left">LiveScript</td>
+<td align="left">livescript, ls</td>
+</tr>
+<tr>
+<td align="left">Lua</td>
+<td align="left">lua</td>
+</tr>
+<tr>
+<td align="left">Makefile</td>
+<td align="left">makefile, mk, mak</td>
+</tr>
+<tr>
+<td align="left">Markdown</td>
+<td align="left">markdown, md, mkdown, mkd</td>
+</tr>
+<tr>
+<td align="left">Mathematica</td>
+<td align="left">mathematica, mma</td>
+</tr>
+<tr>
+<td align="left">Matlab</td>
+<td align="left">matlab</td>
+</tr>
+<tr>
+<td align="left">Maxima</td>
+<td align="left">maxima</td>
+</tr>
+<tr>
+<td align="left">Maya Embedded Language</td>
+<td align="left">mel</td>
+</tr>
+<tr>
+<td align="left">Mercury</td>
+<td align="left">mercury</td>
+</tr>
+<tr>
+<td align="left">Mizar</td>
+<td align="left">mizar</td>
+</tr>
+<tr>
+<td align="left">Mojolicious</td>
+<td align="left">mojolicious</td>
+</tr>
+<tr>
+<td align="left">Monkey</td>
+<td align="left">monkey</td>
+</tr>
+<tr>
+<td align="left">Moonscript</td>
+<td align="left">moonscript, moon</td>
+</tr>
+<tr>
+<td align="left">NSIS</td>
+<td align="left">nsis</td>
+</tr>
+<tr>
+<td align="left">Nginx</td>
+<td align="left">nginx, nginxconf</td>
+</tr>
+<tr>
+<td align="left">Nimrod</td>
+<td align="left">nimrod, nim</td>
+</tr>
+<tr>
+<td align="left">Nix</td>
+<td align="left">nix</td>
+</tr>
+<tr>
+<td align="left">OCaml</td>
+<td align="left">ocaml, ml</td>
+</tr>
+<tr>
+<td align="left">Objective C</td>
+<td align="left">objectivec, mm, objc, obj-c</td>
+</tr>
+<tr>
+<td align="left">OpenGL Shading Language</td>
+<td align="left">glsl</td>
+</tr>
+<tr>
+<td align="left">OpenSCAD</td>
+<td align="left">openscad, scad</td>
+</tr>
+<tr>
+<td align="left">Oracle Rules Language</td>
+<td align="left">ruleslanguage</td>
+</tr>
+<tr>
+<td align="left">Oxygene</td>
+<td align="left">oxygene</td>
+</tr>
+<tr>
+<td align="left">PF</td>
+<td align="left">pf, pf.conf</td>
+</tr>
+<tr>
+<td align="left">PHP</td>
+<td align="left">php, php3, php4, php5, php6</td>
+</tr>
+<tr>
+<td align="left">Parser3</td>
+<td align="left">parser3</td>
+</tr>
+<tr>
+<td align="left">Perl</td>
+<td align="left">perl, pl, pm</td>
+</tr>
+<tr>
+<td align="left">PowerShell</td>
+<td align="left">powershell, ps</td>
+</tr>
+<tr>
+<td align="left">Processing</td>
+<td align="left">processing</td>
+</tr>
+<tr>
+<td align="left">Prolog</td>
+<td align="left">prolog</td>
+</tr>
+<tr>
+<td align="left">Protocol Buffers</td>
+<td align="left">protobuf</td>
+</tr>
+<tr>
+<td align="left">Puppet</td>
+<td align="left">puppet, pp</td>
+</tr>
+<tr>
+<td align="left">Python</td>
+<td align="left">python, py, gyp</td>
+</tr>
+<tr>
+<td align="left">Python profiler results</td>
+<td align="left">profile</td>
+</tr>
+<tr>
+<td align="left">Q</td>
+<td align="left">k, kdb</td>
+</tr>
+<tr>
+<td align="left">QML</td>
+<td align="left">qml</td>
+</tr>
+<tr>
+<td align="left">R</td>
+<td align="left">r</td>
+</tr>
+<tr>
+<td align="left">RenderMan RIB</td>
+<td align="left">rib</td>
+</tr>
+<tr>
+<td align="left">RenderMan RSL</td>
+<td align="left">rsl</td>
+</tr>
+<tr>
+<td align="left">Roboconf</td>
+<td align="left">graph, instances</td>
+</tr>
+<tr>
+<td align="left">Ruby</td>
+<td align="left">ruby, rb, gemspec, podspec, thor, irb</td>
+</tr>
+<tr>
+<td align="left">Rust</td>
+<td align="left">rust, rs</td>
+</tr>
+<tr>
+<td align="left">SCSS</td>
+<td align="left">scss</td>
+</tr>
+<tr>
+<td align="left">SQL</td>
+<td align="left">sql</td>
+</tr>
+<tr>
+<td align="left">STEP Part 21</td>
+<td align="left">p21, step, stp</td>
+</tr>
+<tr>
+<td align="left">Scala</td>
+<td align="left">scala</td>
+</tr>
+<tr>
+<td align="left">Scheme</td>
+<td align="left">scheme</td>
+</tr>
+<tr>
+<td align="left">Scilab</td>
+<td align="left">scilab, sci</td>
+</tr>
+<tr>
+<td align="left">Smali</td>
+<td align="left">smali</td>
+</tr>
+<tr>
+<td align="left">Smalltalk</td>
+<td align="left">smalltalk, st</td>
+</tr>
+<tr>
+<td align="left">Stan</td>
+<td align="left">stan</td>
+</tr>
+<tr>
+<td align="left">Stata</td>
+<td align="left">stata</td>
+</tr>
+<tr>
+<td align="left">Stylus</td>
+<td align="left">stylus, styl</td>
+</tr>
+<tr>
+<td align="left">Swift</td>
+<td align="left">swift</td>
+</tr>
+<tr>
+<td align="left">Tcl</td>
+<td align="left">tcl, tk</td>
+</tr>
+<tr>
+<td align="left">TeX</td>
+<td align="left">tex</td>
+</tr>
+<tr>
+<td align="left">Thrift</td>
+<td align="left">thrift</td>
+</tr>
+<tr>
+<td align="left">TP</td>
+<td align="left">tp</td>
+</tr>
+<tr>
+<td align="left">Twig</td>
+<td align="left">twig, craftcms</td>
+</tr>
+<tr>
+<td align="left">TypeScript</td>
+<td align="left">typescript, ts</td>
+</tr>
+<tr>
+<td align="left">VB.Net</td>
+<td align="left">vbnet, vb</td>
+</tr>
+<tr>
+<td align="left">VBScript</td>
+<td align="left">vbscript, vbs</td>
+</tr>
+<tr>
+<td align="left">VHDL</td>
+<td align="left">vhdl</td>
+</tr>
+<tr>
+<td align="left">Vala</td>
+<td align="left">vala</td>
+</tr>
+<tr>
+<td align="left">Verilog</td>
+<td align="left">verilog, v</td>
+</tr>
+<tr>
+<td align="left">Vim Script</td>
+<td align="left">vim</td>
+</tr>
+<tr>
+<td align="left">x86 Assembly</td>
+<td align="left">x86asm</td>
+</tr>
+<tr>
+<td align="left">XQuery</td>
+<td align="left">xpath, xq</td>
+</tr>
+<tr>
+<td align="left">Zephir</td>
+<td align="left">zephir, zep</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Hexo博客</category>
+      </categories>
+      <tags>
+        <tag>代码高亮</tag>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DOS命令</title>
+    <url>/%5Bobject%20Object%5D/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/DOS%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="DOS命令详解"><a href="#DOS命令详解" class="headerlink" title="DOS命令详解"></a>DOS命令详解</h2><table>
+<thead>
+<tr>
+<th align="left">编号</th>
+<th align="left">dos命令</th>
+<th align="left">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">C:</td>
+<td align="left">盘符加上冒号，改变盘符</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">cd 文件名称|打开指定文件,到文件目录下</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">md 文件名称</td>
+<td align="left">在当前目录下创建指定文件夹</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">rd 文件名称</td>
+<td align="left">删除当前目录下的指定目录</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">dir</td>
+<td align="left">查询当前目录下的内容</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">cls</td>
+<td align="left">清除屏幕命令</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">cd ..</td>
+<td align="left">返回上一级目录</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>电脑系统设置</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>删除多余的操作系统</title>
+    <url>/%5Bobject%20Object%5D/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<ol>
+<li>按win+R,在运行对话框中输入msconfig 然后点击确定<br><img src="/images/%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9B%BE%E7%89%871.png"></li>
+</ol>
+<a id="more"></a>
+<ol start="2">
+<li>然后点击引导 ，选择要删除的操作系统，然后点击应用即可<br><img src="/images/%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9B%BE%E7%89%872.png"></li>
+</ol>
+]]></content>
+      <categories>
+        <category>电脑系统设置</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>添加鼠标桌面右键的菜单栏</title>
+    <url>/%5Bobject%20Object%5D/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E6%A1%8C%E9%9D%A2%E5%8F%B3%E9%94%AE%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F/</url>
+    <content><![CDATA[<ol>
+<li>按win+R，在运行对话框中输入RegEdit 然后点击确定<br><img src="/images/%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E6%A1%8C%E9%9D%A2%E5%8F%B3%E9%94%AE%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F/%E5%9B%BE%E7%89%871.png"></li>
+</ol>
+<a id="more"></a>
+
+<ol start="2">
+<li><p>在HKEY_CLASSES_ROOT目录下，依次展开：Directory\Background\shell，如图所<br><img src="/images/%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E6%A1%8C%E9%9D%A2%E5%8F%B3%E9%94%AE%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F/%E5%9B%BE%E7%89%872.png"></p>
+</li>
+<li><p>3、选中shell，右键，新建项，从命名为 NotePad++编辑， 如图所示<br><img src="/images/%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E6%A1%8C%E9%9D%A2%E5%8F%B3%E9%94%AE%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F/%E5%9B%BE%E7%89%873.png"></p>
+</li>
+<li><p>又选择NotePad++编辑文件夹，右键，新建项，从命名为command ，如图所示<br><img src="/images/%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E6%A1%8C%E9%9D%A2%E5%8F%B3%E9%94%AE%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F/%E5%9B%BE%E7%89%874.png"></p>
+</li>
+<li><p>又选择command文件夹，在右端双击双击默认文件，打开编辑字符串，如图所示<br><img src="/images/%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E6%A1%8C%E9%9D%A2%E5%8F%B3%E9%94%AE%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F/%E5%9B%BE%E7%89%875.png"></p>
+</li>
+<li><p>去桌面右键点击NotePad++，选择属性，如图所示<br><img src="/images/%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E6%A1%8C%E9%9D%A2%E5%8F%B3%E9%94%AE%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F/%E5%9B%BE%E7%89%876.png"></p>
+</li>
+<li><p>复制QQ的安装路径（不要双引号），添加到默认的编辑中，如图所示<br><img src="/images/%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E6%A1%8C%E9%9D%A2%E5%8F%B3%E9%94%AE%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F/%E5%9B%BE%E7%89%877.png"></p>
+</li>
+<li><p>ok，设置完成，去桌面右键看一下是否成功。右键NotePad++已经添加，成功</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>电脑系统设置</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>相对路径和绝对路径</title>
+    <url>/%5Bobject%20Object%5D/Html/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/</url>
+    <content><![CDATA[<p>##相对路径和绝对路径</p>
+<p>../ （代表一级上级目录）<br>../../ （代表二级上级目录）<br>目录名/ （下一级目录）</p>
+<a id="more"></a>
+
+<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p>绝对路径是指目录下的绝对位置，直接到达目标位置，通常是从盘符开始的路径。 完整的描述文件位置的路径就是绝对路径，以web站点根目录为参考基础的目录路径。</p>
+<p>比如一个html文件在D盘 下的file文件夹下<br>那绝对路径就是 E:\file\1.html</p>
+<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p>相对路径就是相对于当前文件来说，目标文件的位置。网页中一般表示路径使用这个方法。如何表示同级目录的文件？</p>
+<p>在同一个目录中 有1.html，和2.html文件 互相调用</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;2.html&quot;</span>&gt;</span>一个目录链接 <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在1.html，调用上一级目录里的2.html文件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;../2.html&quot;</span>&gt;</span>上一级目录 <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在1.html，调用下一级file目录里的2.html文件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;file/2.html&quot;</span>&gt;</span>下一级目录 <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Html</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET</tag>
+        <tag>html</tag>
+        <tag>网页路径</tag>
+      </tags>
+  </entry>
+</search>
